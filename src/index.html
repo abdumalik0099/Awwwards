@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BITEX</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="navbar container">
+            <div class="nav-logo"><img src="./assets/svg/logo.webp" alt="this is logo"></div>
+            <div class="nav-input"><i class="ri-search-line"></i><input type="text" placeholder="Search"></div>
+            <div class="nav-icons">
+                <ul>
+                    <li class="bord"><i class="ri-user-line"></i> Account</li>
+                    <li><i class="ri-heart-2-line"></i></li>
+                    <li><i class="ri-shopping-cart-2-line"></i></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <hr class="hhr">
+    <div class="nav-unter container">
+        <div class="left-nav">
+            <div class="tex"><i class="ri-menu-2-line"></i>All Categories</div>
+            <div class="hr"></div>
+            <div class="uls">
+                <ul>
+                    <li>Computer</li>
+                    <li>Laptop</li>
+                    <li>Mobile</li>
+                    <li>TV</li>
+                    <li>Gaming</li>
+                    <li>Camera</li>
+                    <li>Tablet</li>
+                    <li>Watch</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="right-nav">
+            <div class="PC"><h3>PC Configuration</h3></div>
+            <div class="icon"><i class="ri-discount-percent-line"></i>Top Deals</div>
+        </div>
+    </div>
+    <hr class="hrr">
+</header>
+<main class="container">
+     <div class="first-div">
+        <div class="text">
+            <ul>
+                <li><i class="ri-device-line"></i>Computers & LaptopsComputers & Laptops</li>
+                <li><i class="ri-macbook-line"></i>TabletsTablets</li>
+                <li><i class="ri-smartphone-line"></i>SmartphonesSmartphones</li>
+                <li><i class="ri-camera-line"></i>Camera & PhotographyCamera & Photography</li>
+                <li><i class="ri-tv-line"></i>TV & Home TheatreTV & Home Theatre</li>
+                <li><i class="ri-gamepad-line"></i>Video GamesVideo Games</li>
+                <li><i class="ri-cellphone-line"></i>Smart WatchesSmart Watches</li>
+                <li><i class="ri-remote-control-2-line"></i>Computer ComponentsComputer Components</li>
+                <li><i class="ri-printer-line"></i>Printers & InkPrinters & Ink</li>
+                <li><i class="ri-music-line"></i>Audios & HeadphonesAudios & Headphones</li>
+            </ul>
+        </div>
+        <div class="svipper">
+    <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
+    centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+    <swiper-slide><img src="./assets/img/PS5.webp" alt="card"></swiper-slide>
+    <swiper-slide><img src="./assets/img/wacom.webp" alt="card"></swiper-slide>
+    <swiper-slide><img src="./assets/img/appleWatch.webp" alt="card"></swiper-slide>
+    <swiper-slide><img src="./assets/img/appleAirpods.webp" alt="card"></swiper-slide>
+    <div class="autoplay-progress" slot="container-end">
+      <svg viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="20"></circle>
+      </svg>
+      <span></span>
+    </div>
+  </swiper-container>
+    <script>
+    const progressCircle = document.querySelector(".autoplay-progress svg");
+    const progressContent = document.querySelector(".autoplay-progress span");
+
+    const swiperEl = document.querySelector("swiper-container");
+    swiperEl.addEventListener("autoplaytimeleft", (e) => {
+      const [swiper, time, progress] = e.detail;
+      progressCircle.style.setProperty("--progress", 1 - progress);
+      progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+    });
+  </script>
+    </div>
+        </div>
+     </div>
+     <div class="three-card">
+        <div class="card-1">
+            <img src="./assets/img/wideAd1.webp" alt="img">
+            <div class="overlay">
+            <p>Smart Watches</p>
+            <h3>Save Up to 99€</h3>
+            <h4>Show Deals</h4>
+            </div>
+        </div>
+        <div class="card-2">
+            <img src="./assets/img/wideAd2.webp" alt="img">
+            <div class="overlay">
+            <p>Laptops</p>
+            <h3>Save Up to 99€</h3>
+            <h4>Show Deals</h4>
+            </div>
+        </div>
+        <div class="card-3">
+            <img src="./assets/img/wideAd3.webp" alt="img">
+            <div class="overlay">
+            <p>DJI Products</p>
+            <h3>Save Up to 199€</h3>
+            <h4>Show Deals</h4>
+            </div>
+        </div>
+     </div>
+     <div class="today">
+        <div><h1>Today’s Deals</h1></div>
+        <div class="text"><h2>view all</h2><i class="ri-arrow-right-double-line"></i></div>
+     </div>
+     <div class="five-cards">
+        <div class="block"><div class="card-1"></div><div class="text">
+            <h2>Apple Airpods MAX</h2>
+            <p>Wireless <br> Noise Cancelling <br> Built-In Microphone</p>
+            <h3>was 579.00 €</h3>
+            <h1>519.00 €</h1>
+        </div>
+    </div>
+        <div class="block"><div class="card-2"></div><div class="text">
+            <h2>Apple Magic Mouse</h2>
+            <p>Bluetooth <br> White <br> usb</p>
+            <h3>was 79.99 €</h3>
+            <h1>55.49 €</h1>
+        </div>
+    </div>
+        <div class="block"><div class="card-3"></div><div class="text">
+            <h2>Apple iMac</h2>
+            <p>8GB Memory <br> 256GB <br> M3 chip</p>
+            <h3>was 1,299.00 €</h3>
+            <h1>1,119.00 €</h1>
+        </div>
+    </div>
+        <div class="block"><div class="card-4"></div><div class="text">
+            <h2>Apple 12.9 Inch iPad Pro</h2>
+            <p>Wi-Fi <br> 256GB <br> 12.9-Inch</p>
+            <h3>was 1,149.00 €</h3>
+            <h1>1,099.00 €</h1>
+        </div>
+    </div>
+        <div class="block"><div class="card-5"></div><div class="text">
+            <h2>Apple iPhone 15 Pro Max</h2>
+            <p>256GB <br> Blue Titanium <br>orange</p>
+            <h3>was 1,199.99 €</h3>
+            <h1>1,059.99 €</h1>
+        </div>
+    </div>
+     </div>
+     <div class="tho-cards">
+        <div class="card1"><img src="./assets/img/lensAd.webp" alt="img">
+            <div class="text">
+                <h3>Smart Watches</h3>
+                <h2>Save Up to 99€</h2>
+                <p>Show Deals</p>
+            </div></div>
+        <div class="card2"><img src="./assets/img/djiAd.webp" alt="img">
+            <div class="text">
+                <h3>Laptops</h3>
+                <h2>Save Up to 99€</h2>
+                <p>Show Deals</p>
+            </div></div>
+     </div>
+     <div class="Collections"><h1>Collections</h1></div>
+     <div class="collections">
+        <div class="card-1">
+            <div class="text">
+                <h3>Tablet</h3>
+                <ul>
+                    <li>iPad</li>
+                    <li>Microsoft Surface</li>
+                    <li>Samsung Galaxy</li>
+                    <li>Amazon Fire</li>
+                    <li>E-Readers</li>
+                </ul>
+            </div>
+            <div class="pictrues">
+                <img src="./assets/img/collectionTablet.webp" alt="img">
+                <p>All Tablet  <i class="ri-arrow-right-s-line"></i></p>
+            </div>
+        </div>
+        <div class="card-2">
+            <div class="text">
+                <h3>Smartphones</h3>
+                <ul>
+                    <li>iPhone</li>
+                    <li>Samsung Galaxy</li>
+                    <li>Google</li>
+                </ul>
+            </div>
+            <div class="pictrues">
+                <img src="./assets/img/17.webp" alt="img">
+                <p>All Smartphones  <i class="ri-arrow-right-s-line"></i></p>
+            </div>
+        </div>
+        <div class="card-3">
+            <div class="text">
+                <h3>Smartwatches</h3>
+                <ul>
+                    <li>Apple Watch</li>
+                    <li>Samsung Galaxy</li>
+                    <li>Android Smartwatches</li>
+                    <li>Fitness Smartwatches</li>
+                    <li>Smartwatches Accessories</li>
+                </ul>
+            </div>
+            <div class="pictrues">
+                <img src="./assets/img/watch.webp" alt="img">
+                <p>All Smartwatches  <i class="ri-arrow-right-s-line"></i></p>
+            </div>
+        </div>
+        <div class="card-4">
+            <div class="text">
+                <h3>Accessories</h3>
+                <ul>
+                    <li>Chargers</li>
+                    <li>Power Banks</li>
+                    <li>Cables</li>
+                    <li>PC Fans</li>
+                    <li>Mobile Covers</li>
+                </ul>
+            </div>
+            <div class="pictrues">
+                <img src="./assets/img/provod.webp" alt="img">
+                <p>All Accessories   <i class="ri-arrow-right-s-line"></i></p>
+            </div>
+        </div>
+     </div>
+      <div class="today">
+        <div><h1>Top Selling Products</h1></div>
+        <div class="text"><h2>view all</h2><i class="ri-arrow-right-double-line"></i></div>
+     </div>
+     <div class="hard">
+        <div class="box">
+            <div class="card-1"></div>
+            <div class="text">
+                <h3>Apple Airpods Pro</h3>
+                <ul>
+                    <li>Built-In Microphone</li>
+                    <li>3rd generation</li>
+                    <li>Water Resistant</li>
+                </ul>
+                <div class="flex"><button>-10%</button><p>was 170,80€</p></div>
+                <h1>129.99€</h1>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="card-2"></div>
+            <div class="text">
+                <h3>Apple Watch Ultra 2</h3>
+                <ul>
+                    <li>GPS + Cellular</li>
+                    <li>Titanium</li>
+                    <li>49mm</li>
+                </ul>
+                <div class="flex"><button>-12%</button><p>was 1000,200.0€</p></div>
+                <h1>799.00€</h1>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="card-3"></div>
+            <div class="text">
+                <h3>ASUS ROG Laptop</h3>
+                <ul>
+                    <li>32GB RAM</li>
+                    <li>17inch display</li>
+                    <li>OLED Display</li>
+                </ul>
+                <div class="flex"><button>-14%</button><p>was 2,499.99€</p></div>
+                <h1>2,149.99€</h1>
+            </div>
+        </div>
+        
+        <div class="box">
+            <div class="card-4"></div>
+            <div class="text">
+                <h3>PS5 Controller</h3>
+                <ul>
+                    <li>Bluetooth</li>
+                    <li>Version 2</li>
+                    <li>USB</li>
+                </ul>
+                <div class="flex"><button>-20%</button><p>was 100.90€</p></div>
+                <h1>69.00€</h1>
+            </div>
+        
+        </div>
+        <div class="box">
+            <div class="card-5"></div>
+            <div class="text">
+                <h3>Sony Alpha 7RV</h3>
+                <ul>
+                    <li>Full Frame</li>
+                    <li>Body</li>
+                    <li>40MP</li>
+                </ul>
+                <div class="flex"><button>-18%</button><p>was 4,499.00€</p></div>
+                <h1>3,699.00€</h1>
+            </div>
+        </div>
+     </div>
+     <div class="today">
+        <div><h1>Latest Posts</h1></div>
+        <div class="text"><h2>view all</h2><i class="ri-arrow-right-double-line"></i></div>
+     </div>
+     <div class="posts">
+        <div class="post1">
+            <img src="./assets/img/blogPost1.webp" alt="img">
+            <h3>Praesent vestibulum nisi at mollis mollis</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet quam finibus, gravida mi in, fermentum est. Nulla lacinia, orci ac dictum euismod, ligula leo suscipit ...</p>
+        </div>
+        <div class="post2">
+            <img src="./assets/img/blogPost2.webp" alt="img">
+            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet quam finibus, gravida mi in, fermentum est. Nulla lacinia, orci ac dictum euismod, ligula leo suscipit l...</p>
+        </div>
+        <div class="post3">
+            <img src="./assets/img/blogPost3.webp" alt="img">
+            <h3>Lorem ipsum dolor sit amet, consectetur</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet quam finibus, gravida mi in, fermentum est. Nulla lacinia, orci ac dictum euismod, ligula leo suscipit l...</p>
+        </div>
+     </div>
+     <div class="select"><h1>Selected Brands</h1></div>
+     <div class="main-over">
+        <div><img src="./assets/svg/first.PNG" alt="1"></div>
+        <div><img src="./assets/svg/2.png" alt="1"></div>
+        <div><img src="./assets/svg/companiesIcons.PNG" alt="1"></div>
+        <div><img src="./assets/svg/4.PNG" alt="1"></div>
+        <div><img src="./assets/svg/5.PNG" alt="1"></div>
+        <div><img src="./assets/svg/6.PNG" alt="1"></div>
+        <div><img src="./assets/svg/7.PNG" alt="1"></div>
+        <div><img src="./assets/svg/8.PNG" alt="1"></div>
+     </div>
+</main>
+<hr class="hhrr">
+<footer class="container">
+    <div class="first-footer-div">
+        <div class="logo"><img src="./assets/svg/logo.webp" alt="this is logo"></div>
+        <div class="input"><i class="ri-search-line"></i><input type="text" placeholder="Search"></div>
+    </div>
+    <hr class="hhhrrr">
+    <div class="footer-over">
+        <div class="tab-1">
+            <h2>Contact Us</h2>
+            <h4>Got Question? Call us 24/7</h4>
+            <h3>+49 30 575909881</h3>
+            <p>685 Market Street, San Francisco, CA 94105, US <br> nonamecompany@justportfolio.com</p>
+        </div>
+        <div class="tab-2">
+            <h2>Categories</h2>
+            <ul>
+                <li>Computer & Laptop</li>
+                <li>Tablets & iPad</li>
+                <li>Printer & Cameras</li>
+                <li>Smart Phones</li>
+                <li>OLED Smart TVs</li>
+                <li>Keyboard & Mouse</li>
+                <li>Video Games</li>
+                <li>Sports & Outdoors</li>
+                <li>Smart Watches</li>
+            </ul>
+        </div>
+        <div class="tab-3">
+            <h2>Customer Service</h2>
+            <ul>
+                <li>Privacy Policy</li>
+                <li>Refund Policy</li>
+                <li>Shipping & Return</li>
+                <li>Terms & Conditions</li>
+                <li>Advanced Search</li>
+                <li>Store Locations</li>
+            </ul>
+        </div>
+        <div class="tab-4">
+            <h2>Sign Up to Newsletter</h2>
+            <div class="flex">
+            <div class="inp"><input type="email" placeholder="email address"></div>
+            <div class="btn"><button>Subscribe</button></div>
+        </div>
+        </div>
+    </div>
+</footer>
+<div class="bg">
+<div class="info container">
+    <div class="info1"><p>© 2025 BITEX Store. All Rights Reserved.</p></div>
+    <div class="info2"><ul>
+        <li>Conditions of Use & Sale</li>
+        <li>Privacy Notice</li>
+        <li>Imprint</li>
+        <li>Cookies Notice</li>
+        <li>Interest-Based Ads Notice</li>
+    </ul></div>
+    <div class="info3">
+        <i class="ri-linkedin-box-fill"></i>
+        <i class="ri-twitter-x-line"></i>
+        <i class="ri-instagram-line"></i>
+        <i class="ri-facebook-circle-fill"></i>
+    </div>
+
+</div>
+</div>
+</body>
+</html>
+<!--------  sass --watch src/sass/layout/main.scss src/dist/style.css  ------->
+
+
+
+
+
+

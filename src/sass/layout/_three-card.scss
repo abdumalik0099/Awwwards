@@ -1,0 +1,89 @@
+@use '../components/mixin.scss' as *;
+.three-card{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    .card-1{
+        @include three-card;
+    img{
+        @include three-card-img;
+    }
+    .overlay{
+        @include overlay;
+        h3{
+            @include three-card-h3;
+        }
+        h4{
+            @include three-card-h4;
+        }
+    }
+    }
+    .card-2{
+        @include three-card;
+    img{
+        @include three-card-img;
+    }
+    .overlay{
+        @include overlay;
+        h3{
+            @include three-card-h3;
+        }
+        h4{
+            @include three-card-h4;
+        }
+    }
+    }
+    .card-3{
+        @include three-card;
+    img{
+        @include three-card-img;
+    }     
+    
+    .overlay{
+        @include overlay;
+        h3{
+            @include three-card-h3;
+        }
+        h4{
+            @include three-card-h4;
+        }
+    }   
+    }
+}
+.today{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    .text{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        h2{
+            padding: 0 20px;
+            transition: 0.4s;
+            &:hover{
+                padding: 0 10px;
+            }
+        }
+        i{
+            font-size: 25px;
+        }
+    }
+}
+@media screen and (max-width: 429px) {
+    .three-card{
+        display: block;
+        .card-2, .card-3{
+            margin-top: 20px;
+            img{
+                width: 410px;
+            }
+        }
+        .card-1{
+            img{
+                width: 410px;
+            }
+        }
+    }
+}

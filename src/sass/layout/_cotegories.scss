@@ -1,0 +1,87 @@
+.nav-unter{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    .left-nav{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        .tex{
+            display: flex;
+            gap: 1.5rem;
+            font-size: 20px;
+            color: #6A7282;
+            cursor: pointer;
+            padding: 10px 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            transition: 0.3s;
+            &:hover{
+              background-color: #e7e7ec;
+            }
+        }
+        .hr{
+            width: 1px;
+            height: 20px;
+            border: 1px solid #969697;
+        }
+        ul{
+            display: flex;
+            gap: rem;
+            list-style: none;
+            font-size: 20px;
+            li{
+                color: #6A7282;
+                cursor: pointer;
+                padding: 10px;
+                background-color: #fff;
+                border-radius: 8px;
+                transition: 0.3s;
+                &:hover{
+                    background-color: #e7e7ec;
+                }
+            }
+        }
+    }
+    .right-nav{
+        align-items: center;
+        display: flex;
+        font-size: 20px;
+        .PC{
+            color: #3b3c3d;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            transition: 0.3s;
+            &:hover{
+                background-color: #e7e7ec;
+            }
+        }
+        .icon{
+            display: flex;
+            gap: 0.5rem;
+            color: rgb(153, 68, 68);
+            cursor: pointer;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            transition: 0.3s;
+            &:hover{
+                background-color: #e7e7ec;
+            }
+            i{
+                color: red;
+            }
+        }
+    }
+}
+.hrr{
+    margin-top: 20px;
+    border-color: rgb(156, 154, 154);
+}
+@media (max-width: 429px) {
+    .hr, .uls, .PC{
+        display: none;
+    }
+}

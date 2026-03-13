@@ -1,0 +1,201 @@
+.first-footer-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    .logo{
+        cursor: pointer;
+    }
+    .input{
+        display: flex;
+        align-items: center;
+        width: 85%;
+        height: 50px;
+        font-size: 20px;
+        border: 1px solid #444444;
+        transition: 0.3s;
+        &:hover{
+        border: 2px solid #050202;
+        }
+        border-radius: 8px;
+        i{
+            padding: 15px;
+            cursor: pointer;
+        }
+        input{
+            width: 100%;
+            height: 90%;
+            outline: none;
+            border: none;
+            font-size: 20px;
+        }
+    }
+}
+.hhhrrr{
+    margin-top: 50px;
+}
+.footer-over{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    .tab-1{
+        h2{
+            color: #101828;
+        }
+        h4{
+            margin-top: 20px;
+            color: #52555a;
+            font-weight: 100;
+            cursor: pointer;
+        }
+        h3{
+            margin-top: 10px;
+            color: rgb(17, 0, 255);
+            font-weight: 500;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        p{
+            margin-top: 10px;
+            color: #52555a;
+            cursor: pointer;
+        }
+    }
+    .tab-2{
+        h2{
+            color: #101828;
+        }
+        ul{
+            margin-top: 20px;
+            list-style: none;
+            li{
+                color: #52555a;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+    .tab-3{
+        h2{
+            color: #101828;
+        }
+        ul{
+            margin-top: 20px;
+            list-style: none;
+            li{
+                color: #52555a;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+    .tab-4{
+        h2{
+            color: #101828;
+        }
+        .flex{
+            margin-top: 20px;
+            display: flex;
+            gap: 0.5rem;
+            .inp{
+                display: flex;
+                padding: 5px;
+                width: 200px;
+                height: 40px;
+                border: 1px solid #444444;
+                border-radius: 7px;
+                align-items: center;
+                input{
+                    padding: 2px;
+                    width: 190px;
+                    height: 35px;
+                    border: none;
+                    outline: none;
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+            }
+            .btn{
+                button{
+                    padding: 11px 30px;
+                    border-radius: 7px;
+                    border: 1px solid #444444;
+                    transition: 0.4s;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #101828;
+                        color: #f8f8f8;
+                    }
+                }
+            }
+        }
+    }
+}
+.bg{
+    margin-top: 30px;
+    background-color: rgb(228, 228, 228);
+    width: 100%;
+    height: 80px;
+    .info{
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .info1{
+            p{
+                font-size: 20px;
+            }
+        }
+        .info2{
+            ul{
+                display: flex;
+                gap: 1rem;
+                li{
+                    list-style: none;
+                    font-size: 17px;
+                }
+            }
+
+        }
+        .info3{
+            display: flex;
+            gap: 1rem;
+            i{
+                font-size: 30px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 429px) {
+    .footer-over{
+        display: block;
+        .tab-1, .tab-2, .tab-3, .tab-4{
+            margin-top: 30px;
+        }
+    }
+    .bg{
+        height: auto;
+        .info{
+            display: block;
+            .info1{
+                p{
+                    align-items: center;
+                }
+            }
+            .info2{
+                ul{
+                    display: block;
+                    text-align: center;
+                    li{
+                        margin-top: 10px;
+                    }
+                }
+            }
+            .info3{
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}
