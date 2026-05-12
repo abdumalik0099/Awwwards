@@ -1,0 +1,624 @@
+// ════════════════════════════════════════════════════════
+//  _media.scss  —  Barcha responsive stillar shu yerda
+//  ESLATMA: body { padding: 0 5px } — O'ZGARTIRILMAYDI
+// ════════════════════════════════════════════════════════
+
+// ── Breakpointlar ──
+// 1024px  → Tablet
+//  768px  → Mobile large
+//  480px  → Mobile small
+//  360px  → Mobile xsmall
+
+
+// ════════════════════════════════════════════
+//  TABLET  (max-width: 1024px)
+// ════════════════════════════════════════════
+@media (max-width: 1024px) {
+
+  // ── Body padding (o'ZGARTIRMANG) ──
+  body {
+    padding: 0 5px;
+  }
+
+  // ── days ──
+  .bigText h1 {
+    font-size: 80px;
+  }
+
+  .texts {
+    .big { font-size: 80px; }
+    .small { padding: 40px 0 20px; font-size: 17px; }
+    .normal { font-size: 17px; }
+  }
+
+  // ── three-card ──
+  .three-card {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .kard {
+    .bottom-info h3 { font-size: 18px; }
+    .vote-btn { padding: 11px 18px; font-size: 13px; }
+    .text {
+      h2 { font-size: 18px; }
+      span { font-size: 16px; }
+    }
+  }
+
+  // ── destraktch (dk-card grid) ──
+  .destraktch {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 16px;
+  }
+
+  .dk-card {
+    .dk-bottom {
+      padding: 20px 18px;
+      h3 { font-size: 18px; }
+    }
+    .dk-vote { padding: 11px 18px; font-size: 14px; }
+    .dk-meta { flex-wrap: wrap; }
+    .dk-title { font-size: 18px; }
+    .dk-author { font-size: 16px; }
+  }
+
+  // ── destraktch1 (blog kartalar) ──
+  .destraktch1 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  // ── swiper / agency kartalar ──
+  .swiper {
+    gap: 16px;
+  }
+
+  .agency-card__name {
+    font-size: clamp(16px, 2vw, 26px);
+  }
+
+  // ── absluga ──
+  .absluga {
+    flex-direction: column;
+    gap: 2.5rem;
+
+    .p-card__header { min-height: auto; }
+  }
+
+  // ── submit-promo ──
+  .submit-promo {
+    flex-direction: column;
+    gap: 20px;
+
+    .promo-card {
+      height: 420px;
+
+      &__content { padding: 30px; }
+
+      .promo-card__top .title { font-size: 28px; }
+    }
+  }
+
+  // ── ruyhat ──
+  .ruyhat {
+    .ruyhat__header { display: none; }
+
+    &__row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 20px;
+      position: relative;
+
+      .col-profile,
+      .col-awards,
+      .col-categories { display: none; }
+
+      .col-action {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 60px;
+      }
+    }
+  }
+
+  // ── buHamOddiyDiv ──
+  .buHamOddiyDiv {
+    margin-top: 100px;
+
+    h1 { font-size: 36px; }
+    h4 { font-size: 16px; }
+  }
+}
+
+
+// ════════════════════════════════════════════
+//  MOBILE LARGE  (max-width: 768px)
+// ════════════════════════════════════════════
+@media (max-width: 768px) {
+
+  // ── Body padding (o'ZGARTIRMANG) ──
+  body {
+    padding: 0 5px;
+  }
+
+  // ── days ──
+  .days {
+    padding-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+
+    .day1, .day2, .day3 {
+      font-size: 13px;
+      padding: 4px 8px;
+    }
+  }
+
+  .bigText h1 {
+    font-size: 52px;
+    padding: 0 8px;
+  }
+
+  .texts {
+    .big   { font-size: 52px; }
+    .small { padding: 30px 0 16px; font-size: 15px; }
+    .normal{ font-size: 15px; }
+  }
+
+  // ── users-list ──
+  .users-list {
+    gap: 20px;
+    padding: 14px 0;
+
+    &__name   { font-size: 15px; }
+    &__avatar { width: 38px; height: 38px; }
+  }
+
+  // ── bigImg ──
+  .bigImg {
+    padding: 16px 0;
+
+    .container1 img { border-radius: 8px; }
+  }
+
+  // ── three-card ──
+  .three-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .kard {
+    .Img {
+      border-radius: 12px;
+      aspect-ratio: 16 / 10;
+    }
+
+    // Mobaylda overlay doim ko'rinib turadi
+    .overlay { opacity: 0.25; }
+
+    .bottom-info {
+      opacity: 1;
+      transform: translateY(0);
+      padding: 14px 16px;
+
+      h3 { font-size: 16px; }
+      .website-label { font-size: 10px; }
+    }
+
+    &:active .vote-btn {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .vote-btn {
+      padding: 10px 16px;
+      font-size: 13px;
+      border-radius: 8px;
+    }
+
+    .bottom-actions a {
+      width: 28px;
+      height: 28px;
+      font-size: 22px;
+    }
+
+    .text {
+      flex-wrap: wrap;
+      gap: 6px;
+
+      h2    { font-size: 16px; }
+      span  { font-size: 14px; }
+      small { font-size: 11px; }
+    }
+  }
+
+  // ── destraktch (dk-card) ──
+  .destraktch {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .dk-card {
+    .dk-thumb {
+      border-radius: 12px;
+      aspect-ratio: 16 / 10;
+    }
+
+    .dk-overlay { opacity: 0.25; }
+
+    .dk-bottom {
+      opacity: 1;
+      transform: translateY(0);
+      padding: 16px;
+
+      h3 { font-size: 16px; }
+      .dk-category { font-size: 10px; }
+    }
+
+    &:active .dk-vote {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .dk-vote {
+      padding: 10px 16px;
+      font-size: 13px;
+      border-radius: 8px;
+
+      i { font-size: 15px; }
+    }
+
+    .dk-bottom-actions {
+      gap: 6px;
+
+      a {
+        width: 30px;
+        height: 30px;
+
+        i { font-size: 15px; }
+      }
+    }
+
+    .dk-meta { gap: 6px; flex-wrap: wrap; }
+    .dk-title  { font-size: 16px; }
+    .dk-by     { font-size: 12px; }
+    .dk-avatar { width: 22px; height: 22px; }
+    .dk-author { font-size: 14px; }
+  }
+
+  // ── destraktch1 (blog kartalar) ──
+  .destraktch1 {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 20px;
+  }
+
+  .d-card {
+    &__img-wrap {
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+
+    &__title { font-size: 18px; }
+    &__desc  { font-size: 13px; }
+  }
+
+  // ── swiper ──
+  .swiper {
+    display: block;
+    margin-top: 24px;
+  }
+
+  .agency-card {
+    width: 100%;
+    margin-top: 16px;
+
+    &__preview { padding-bottom: 62%; }
+
+    &__mock {
+      right: 12px;
+      top: 10px;
+      width: 68%;
+    }
+
+    &__logo-badge {
+      width: 44px;
+      height: 44px;
+      font-size: 12px;
+      top: 12px;
+      left: 12px;
+    }
+
+    &__body { padding: 16px 16px 14px; }
+
+    &__name { font-size: clamp(16px, 5vw, 22px); }
+
+    &__works-pill { padding: 8px 10px; }
+    &__works-count { font-size: 16px; }
+
+    &__url,
+    &__awards { font-size: 11px; }
+
+    &__footer { padding-top: 12px; }
+  }
+
+  .screen-slide {
+    font-size: 9px;
+    padding: 10px;
+  }
+
+  .agency-card__mock-bar {
+    height: 18px;
+    padding: 0 6px;
+    gap: 4px;
+  }
+
+  .agency-card__mock-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  // ── footer ──
+  .footer {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    &__bottom {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 25px;
+    }
+
+    &__socials { gap: 12px 16px; }
+  }
+
+  // ── oddiy ──
+  .oddiy {
+    margin: 48px 0;
+
+    h1 {
+      font-size: 16px;
+      text-align: center;
+
+      span { font-size: 16px; }
+    }
+  }
+
+  // ── buHamOddiyDiv ──
+  .buHamOddiyDiv {
+    margin-top: 60px;
+
+    h1 { font-size: 28px; }
+    h4 { font-size: 14px; }
+  }
+}
+
+
+// ════════════════════════════════════════════
+//  MOBILE SMALL  (max-width: 480px)
+// ════════════════════════════════════════════
+@media (max-width: 480px) {
+
+  // ── Body padding (o'ZGARTIRMANG) ──
+  body {
+    padding: 0 5px;
+  }
+.banner{
+    display: block;
+}
+.oddiyroq{
+    h1{
+        font-size: 40px;
+    }
+} 
+
+.floating-nav{
+    display: none;
+}
+
+.back-to-top{
+    display: none;
+
+}
+  // ── days ──
+  .bigText h1 { font-size: 36px; }
+
+  .texts {
+    .big   { font-size: 36px; }
+    .small { font-size: 13px; }
+    .normal{ font-size: 13px; }
+  }
+
+  // ── users-list ──
+  .users-list {
+    gap: 14px;
+
+    &__name   { font-size: 13px; }
+    &__avatar { width: 32px; height: 32px; }
+    &__badge  { font-size: 8px; }
+  }
+
+  // ── three-card ──
+  .kard {
+    .Img {
+      border-radius: 10px;
+      aspect-ratio: 3 / 2;
+    }
+
+    .bottom-info {
+      padding: 12px 14px;
+      h3 { font-size: 14px; }
+    }
+
+    .bottom-actions a {
+      width: 26px;
+      height: 26px;
+      font-size: 18px;
+    }
+
+    .vote-btn {
+      padding: 9px 14px;
+      font-size: 12px;
+    }
+
+    .text {
+      h2   { font-size: 14px; }
+      span { font-size: 13px; }
+    }
+  }
+
+  // ── destraktch (dk-card) ──
+  .destraktch {
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .dk-card {
+    .dk-thumb {
+      border-radius: 10px;
+      aspect-ratio: 3 / 2;
+    }
+
+    .dk-bottom {
+      padding: 12px 14px;
+      h3 { font-size: 14px; }
+    }
+
+    .dk-bottom-actions a {
+      width: 28px;
+      height: 28px;
+      i { font-size: 14px; }
+    }
+
+    .dk-vote {
+      padding: 9px 14px;
+      font-size: 12px;
+      gap: 6px;
+    }
+
+    .dk-title  { font-size: 14px; }
+    .dk-author { font-size: 13px; }
+
+    .dk-badge {
+      font-size: 9px;
+      padding: 1px 4px;
+    }
+  }
+
+  // ── swiper ──
+  .agency-card {
+    &__preview { padding-bottom: 70%; }
+
+    &__mock {
+      right: 10px;
+      top: 8px;
+      width: 72%;
+    }
+
+    &__logo-badge {
+      width: 36px;
+      height: 36px;
+      font-size: 10px;
+      top: 10px;
+      left: 10px;
+    }
+
+    &__tag         { font-size: 10px; }
+    &__works-pill  { padding: 6px 8px; }
+    &__works-label { font-size: 9px; }
+    &__works-count { font-size: 14px; }
+  }
+
+  // ── footer ──
+  .footer {
+    &__grid {
+      gap: 25px;
+    }
+
+    &__legal {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  // ── submit-promo ──
+  .submit-promo .promo-card {
+    height: 340px;
+
+    &__content { padding: 24px; }
+
+    .promo-card__top .title { font-size: 22px; }
+
+    .promo-btn {
+      padding: 12px 20px;
+      font-size: 13px;
+    }
+  }
+
+  // ── buHamOddiyDiv ──
+  .buHamOddiyDiv {
+    margin-top: 40px;
+
+    h1 { font-size: 22px; }
+  }
+}
+
+
+// ════════════════════════════════════════════
+//  MOBILE XSMALL  (max-width: 360px)
+// ════════════════════════════════════════════
+@media (max-width: 360px) {
+
+  body {
+    padding: 0 5px;
+  }
+
+  .bigText h1 { font-size: 28px; }
+
+  .texts .big { font-size: 28px; }
+
+  .agency-card {
+    &__body { padding: 12px 12px 10px; }
+    &__mock { width: 75%; }
+    &__name { font-size: 15px; }
+  }
+
+  .dk-card {
+    .dk-title  { font-size: 13px; }
+    .dk-author { font-size: 12px; }
+  }
+
+  .kard .text {
+    h2   { font-size: 13px; }
+    span { font-size: 12px; }
+  }
+
+  // ── footer ──
+  .footer {
+    &__grid {
+      gap: 20px;
+    }
+
+    &__bottom {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    &__socials { gap: 10px 12px; }
+
+    &__legal {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
