@@ -1,72 +1,270 @@
-.navbar{
-    img{
-        cursor: pointer;
-    }
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    .nav-input{
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 0 5px 0 10px;
-        border: 1px solid #6A7282;
-        width: 700px;
-        height: 40px;
-        border-radius: 7px;
-        cursor: pointer;
-        i{
-            color: #4f5052;
-            font-size: 20px;
-        }
-        input{
-            width: 650px;
-            height: 35px;
-            border: none;
-            outline: none;
-            font-size: 20px;
-        }
-    }
-    .nav-icons{
-        cursor: pointer;
-        ul{
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        list-style: none;
-        font-size: 25px;
-        .bord{
-            padding: 5px;
-            border: 1px solid #fff;
-            border-radius: 7px;
-            transition: 0.3s;
-            &:hover{
-                border: 1px solid #6A7282;
-                color: #4f5052;
-            }
-        }
-        li{
-            color: #6A7282;
-            transition: 0.3s;
-            &:hover{
-                color: #4f5052;
-            }
-        }
-    }
-    }
+@use '../components/mixin.scss' as *;
+// O'zgaruvchilar (Variables)
+$bg-color: #E9E9E9; // Orqa fon rangi
+$text-color: #000000;
+$input-bg: #dbdbdb;
+$btn-dark: #1a1a1a;
+$btn-text: #ffffff;
+$badge-color: #2c2c2c;
+$border-color: #9e9e9e;
+
+// Miksinlar (Media queries oson bo'lishi uchun)
+@mixin tablet {
+  @media (max-width: 1024px) { @content; }
 }
-.hhr{
-        color: #969697;
-        margin-top: 20px;
+@mixin mobile {
+  @media (max-width: 768px) { @content; }
+}
+
+// Reset va global sozlamalar (Agar loyihangizda bo'lmasa)
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+// Header asosiy qismi
+.header {
+  background-color: $bg-color;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  @include mobile {
+    padding: 8px 16px;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @include mobile {
+      gap: 12px;
+      justify-content: space-between;
     }
-@media (max-width: 429px) {
-    *{
-        padding: 0 2px;
+  }
+
+  // Burger menu (Mobilda chiqadigan chiziqchalar)
+  &__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 18px;
+    height: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    @include tablet {
+      display: flex;
     }
-    .navbar{
-        .nav-input{
-            display: none;
-        }
+
+    span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: $text-color;
+      border-radius: 2px;
     }
+  }
+
+  // Logotip uslubi
+  &__logo {
+    display: flex;
+    align-items: center;
+    color: $text-color;
+    text-decoration: none;
+    flex-shrink: 0;
+    
+    svg {
+      width: 32px;
+      height: auto;
+    }
+  }
+
+  // Desktop Navigatsiyasi
+  &__nav {
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      display: none; // Planshet va mobilda yashiriladi
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+
+    &-link {
+      color: $text-color;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &--dropdown::after {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-right: 1.5px solid $text-color;
+        border-bottom: 1.5px solid $text-color;
+        transform: rotate(45deg);
+        margin-left: 2px;
+        margin-bottom: 3px;
+      }
+
+      .badge {
+        background-color: $badge-color;
+        color: #fff;
+        font-size: 9px;
+        text-transform: uppercase;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  // Qidiruv bo'limi (Input)
+  &__search {
+    position: relative;
+    flex-grow: 1;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+      max-width: none;
+    }
+
+    &-icon {
+      position: absolute;
+      left: 12px;
+      display: flex;
+      align-items: center;
+      color: #666;
+      pointer-events: none;
+    }
+
+    &-input {
+      width: 100%;
+      background-color: $input-bg;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 12px 10px 38px;
+      font-size: 14px;
+      color: $text-color;
+      outline: none;
+      transition: background-color 0.2s;
+
+      &::placeholder {
+        color: #707070;
+      }
+
+      &:focus {
+        background-color: rgba($input-bg, 0.8);
+      }
+
+      @include mobile {
+        padding: 8px 10px 8px 32px;
+        font-size: 13px;
+      }
+    }
+  }
+
+  // O'ng tomondagi tugmalar qismi
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+
+    @include tablet {
+      gap: 10px;
+    }
+  }
+
+  // Profil belgisi (Faqat mobilda ko'rinadi)
+  &__profile-mobile {
+    display: none;
+    color: $text-color;
+    align-items: center;
+    justify-content: center;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  // Desktop login & sign up linklari
+  &__link {
+    color: $text-color;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+
+    @include tablet {
+      display: none; // Mobilda yashiriladi
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Buttonlar (Pro va Submit)
+  &__btn {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: all 0.2s;
+
+    @include tablet {
+      display: none; // Mobilda yashiriladi
+    }
+
+    &--pro {
+      background-color: $btn-dark;
+      color: $btn-text;
+
+      &:hover {
+        background-color: lighten($btn-dark, 10%);
+      }
+    }
+
+    &--submit {
+      background-color: transparent;
+      color: $text-color;
+      border: 1px solid $text-color;
+
+      &:hover {
+        background-color: $text-color;
+        color: $bg-color;
+      }
+    }
+  }
 }

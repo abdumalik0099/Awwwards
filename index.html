@@ -1,425 +1,1043 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BITEX</title>
-    <link rel="stylesheet" href="src/dist/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-</head>
-<body>
-<header>
-    <nav>
-        <div class="navbar container">
-            <div class="nav-logo"><img src="./src/assets/svg/logo.webp" alt="this is logo"></div>
-            <div class="nav-input"><i class="ri-search-line"></i><input type="text" placeholder="Search"></div>
-            <div class="nav-icons">
-                <ul>
-                    <li class="bord"><i class="ri-user-line"></i> Account</li>
-                    <li><i class="ri-heart-2-line"></i></li>
-                    <li><i class="ri-shopping-cart-2-line"></i></li>
-                </ul>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awwwards - Website Awards</title>
+    <link rel="stylesheet" href="src/dist/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg width='30' height='16' viewBox='0 0 30 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='m18.4 0-2.803 10.855L12.951 0H9.34L6.693 10.855 3.892 0H0l5.012 15.812h3.425l2.708-10.228 2.709 10.228h3.425L22.29 0h-3.892ZM24.77 13.365c0 1.506 1.12 2.635 2.615 2.635C28.879 16 30 14.87 30 13.365c0-1.506-1.12-2.636-2.615-2.636s-2.615 1.13-2.615 2.636Z' fill='%23fff'/%3E</svg>" />        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <button class="header__burger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <a href="#" class="header__logo" aria-label="Awwwards">
+          <svg
+            width="30"
+            height="16"
+            viewBox="0 0 30 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m18.4 0-2.803 10.855L12.951 0H9.34L6.693 10.855 3.892 0H0l5.012 15.812h3.425l2.708-10.228 2.709 10.228h3.425L22.29 0h-3.892ZM24.77 13.365c0 1.506 1.12 2.635 2.615 2.635C28.879 16 30 14.87 30 13.365c0-1.506-1.12-2.636-2.615-2.636s-2.615 1.13-2.615 2.636Z"
+              fill="#000000"
+            />
+          </svg>
+        </a>
+
+        <nav class="header__nav">
+          <ul class="header__menu">
+            <li class="header__menu-item">
+              <a href="#" class="header__menu-link header__menu-link--dropdown"
+                >Explore</a
+              >
+            </li>
+            <li class="header__menu-item">
+              <a href="#" class="header__menu-link">Directory</a>
+            </li>
+            <li class="header__menu-item">
+              <a href="#" class="header__menu-link"
+                >Academy <span class="badge">New</span></a
+              >
+            </li>
+            <li class="header__menu-item">
+              <a href="#" class="header__menu-link">Jobs</a>
+            </li>
+            <li class="header__menu-item">
+              <a href="#" class="header__menu-link">Market</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="header__search">
+          <span class="header__search-icon">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input
+            type="text"
+            placeholder="Search by Inspiration"
+            class="header__search-input"
+          />
         </div>
+
+        <div class="header__actions">
+          <a href="#" class="header__profile-mobile" aria-label="Profile">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+              <path d="m16 11 2 2 4-4" stroke-width="2.5" />
+            </svg>
+          </a>
+
+          <a href="#" class="header__link header__link--login">Log in</a>
+          <a href="#" class="header__link header__link--signup">Sign Up</a>
+          <a href="#" class="header__btn header__btn--pro">Be Pro</a>
+          <a href="#" class="header__btn header__btn--submit">Submit Website</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="days">
+        <button class="day1">Site of the Day</button>
+        <button class="day2">May 11 , 2026</button>
+        <button class="day3">Score 7.37 <small>of</small> 10</button>
+      </div>
+      <div class="bigText">
+        <h1>OUTFIT</h1>
+      </div>
+      <div class="sozdateli">
+        <ul class="users-list container">
+          <li class="users-list__item">
+            <div class="users-list__avatar users-list__avatar--icon">
+              <img
+                src="./src/assets/svg/plastplast.jpg"
+                alt="Pablo Picart"
+                class="users-list__avatar-img"
+              />
+            </div>
+            <div class="users-list__info">
+              <a href="#" class="users-list__name">++hellohello</a>
+              <span class="users-list__badge">PRO</span>
+            </div>
+          </li>
+
+          <li class="users-list__item">
+            <div class="users-list__avatar">
+              <img
+                src="./src/assets/svg/person1.png"
+                alt="Pablo Picart"
+                class="users-list__avatar-img"
+              />
+            </div>
+            <div class="users-list__info">
+              <a href="#" class="users-list__name">Pablo Picart</a>
+              <span class="users-list__badge">PRO</span>
+            </div>
+          </li>
+
+          <li class="users-list__item">
+            <div class="users-list__avatar">
+              <img
+                src="./src/assets/svg/person2.png"
+                alt="SEB®"
+                class="users-list__avatar-img"
+              />
+            </div>
+            <div class="users-list__info">
+              <a href="#" class="users-list__name">SEB®</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="bigImg">
+        <div class="container1">
+          <img src="./src/assets/img/biqImg.jpg" alt="" />
+        </div>
+      </div>
+      <div class="three-card container1" id="nominees"></div>
+      <div class="texts">
+        <div class="small">Lates</div>
+        <div class="big">NOMINEES</div>
+        <div class="normal">
+          Vote for the latest websites on <br />
+          awwwards
+        </div>
+      </div>
+      <!-- three-card -->
+      <div class="three-card container1">
+        <div class="kard1 kard">
+          <div class="Img">
+            <img src="./src/assets/img/nomines1.png" alt="" />
+            <div class="overlay"></div>
+            <button class="vote-btn">→ Vote Now</button>
+            <div class="bottom-info">
+              <div class="bottom-left">
+                <small class="website-label">Website</small>
+                <h3>Hashgraph Ventures</h3>
+              </div>
+              <div class="bottom-actions">
+                <a href="#"><i class="ri-arrow-right-up-line"></i></a>
+                <a href="#"><i class="ri-bookmark-line"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="text">
+            <h2>Hashgraph Ventures</h2>
+            <small>by</small>
+            <img src="./src/assets/img/personname1.png" alt="" />
+            <span>Glenn Catteeuw</span>
+            <h6>pro</h6>
+          </div>
+        </div>
+
+        <div class="kard2 kard">
+          <div class="Img">
+            <img src="./src/assets/img/nomines2.png" alt="" />
+            <div class="overlay"></div>
+            <button class="vote-btn">→ Vote Now</button>
+            <div class="bottom-info">
+              <div class="bottom-left">
+                <small class="website-label">Website</small>
+                <h3>WatchHouse.</h3>
+              </div>
+              <div class="bottom-actions">
+                <a href="#"><i class="ri-arrow-right-up-line"></i></a>
+                <a href="#"><i class="ri-bookmark-line"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="text">
+            <h2>WatchHouse.</h2>
+            <small>by</small>
+            <img src="./src/assets/img/personname2.png" alt="" />
+            <span>Dash</span>
+            <h6>pro</h6>
+          </div>
+        </div>
+
+        <div class="kard3 kard">
+          <div class="Img">
+            <img src="./src/assets/img/nomines3.jpg" alt="" />
+            <div class="overlay"></div>
+            <button class="vote-btn">→ Vote Now</button>
+            <div class="bottom-info">
+              <div class="bottom-left">
+                <small class="website-label">Website</small>
+                <h3>Partizan</h3>
+              </div>
+              <div class="bottom-actions">
+                <a href="#"><i class="ri-arrow-right-up-line"></i></a>
+                <a href="#"><i class="ri-bookmark-line"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="text">
+            <h2>Partizan</h2>
+            <small>by</small>
+            <img src="./src/assets/img/personname3.png" alt="" />
+            <span>Beaucoup.</span>
+            <h6>pro</h6>
+          </div>
+        </div>
+      </div>
+      <!-- oddiy div -->
+      <div class="oddiy">
+        <h1>
+          Check out all submitted websites <i class="ri-arrow-right-line"></i>
+          <span>View Nominees</span>
+        </h1>
+      </div>
+
+      <!-- buham oddiy div -->
+      <div class="buHamOddiyDiv container2">
+        <h4>Winners</h4>
+        <h1>Recent Sites <br />of the Day.</h1>
+      </div>
+      <!-- destraktch -->
+      <div class="destraktch container1"></div>
+      <!-- oddiy div -->
+      <div class="oddiy">
+        <h1>
+          Check out all submitted websites <i class="ri-arrow-right-line"></i>
+          <span>View Nominees</span>
+        </h1>
+      </div>
+
+      <!-- buham oddiy div -->
+      <div class="buHamOddiyDiv container2">
+        <div class="four-card container2" id="courses"></div>
+        <h4>Academy</h4>
+        <h1>Learn from the <br />best instructors.</h1>
+      </div>
+
+      <!-- four cards -->
+      <div class="four-card container2">
+        <div class="card">
+          <div class="card__img">
+            <img src="./src/assets/img/four1.jpg" alt="Learn UI Design" />
+          </div>
+          <div class="card__content">
+            <h3>Learn UI Design with Figma from Scratch</h3>
+
+            <div class="card__meta">
+              <span class="label">Instructor</span>
+              <span class="value name">Daniele Buffa</span>
+            </div>
+
+            <div class="card__footer">
+              <div class="card__score">
+                <span class="label">Score <span>4.9/5</span></span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 98%"></div>
+                </div>
+              </div>
+              <i class="ri-arrow-right-line card__arrow"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__img">
+            <img src="./src/assets/img/four2.jpg" alt="Nordic Design" />
+          </div>
+          <div class="card__content">
+            <h3>Nordic Design Intensive Course: Complete Branding</h3>
+
+            <div class="card__meta">
+              <span class="label">Instructor</span>
+              <span class="value name">Hmmmd Creative Studio</span>
+            </div>
+
+            <div class="card__footer">
+              <div class="card__score">
+                <span class="label">Score <span>5/5</span></span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 100%"></div>
+                </div>
+              </div>
+              <i class="ri-arrow-right-line card__arrow"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card none">
+          <div class="card__img">
+            <img
+              src="./src/assets/img/four3.webp"
+              alt="Innovative Web Design"
+            />
+          </div>
+          <div class="card__content">
+            <h3>Innovative Web Design in Figma: A Step-by-Step Process</h3>
+
+            <div class="card__meta">
+              <span class="label">Instructor</span>
+              <span class="value name">Louis Paquet</span>
+            </div>
+
+            <div class="card__footer">
+              <div class="card__score">
+                <span class="label">Score <span>5/5</span></span>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 100%"></div>
+                </div>
+              </div>
+              <i class="ri-arrow-right-line card__arrow"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- oddiy div -->
+      <div class="oddiy">
+        <h1>
+          Choose from over hundreds of courses
+          <i class="ri-arrow-right-line"></i> <span>View Academy</span>
+        </h1>
+      </div>
+
+      <!-- buham oddiy div -->
+      <div class="banner container2" id="collections"></div>
+      <div class="buHamOddiyDiv container2">
+        <h4>Collections</h4>
+        <h1>Explore a wide <br />variety of collections.</h1>
+      </div>
+      <!-- banner -->
+      <div class="banner container2">
+        <div class="banner__card">
+          <div class="banner__img-container">
+            <div class="banner__inner-img">
+              <img
+                src="./src/assets/img/banner1.jpg"
+                alt="Team & About Pages"
+              />
+            </div>
+
+            <div class="banner__badge">
+              <small>Collection</small>
+              <h4>Inspiration</h4>
+            </div>
+          </div>
+
+          <div class="banner__info">
+            <h3>Team & About Pages</h3>
+            <div class="banner__users">
+              <small>followed by</small>
+              <div class="user-avatars">
+                <img src="./src/assets/img/bannerAva1.jpg" alt="user" />
+                <img src="./src/assets/img/bannerAva2.jpg" alt="user text" />
+                <img src="./src/assets/img/bannerAva3.jpg" alt="user text" />
+                <span>+1005</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="banner__card">
+          <div class="banner__img-container">
+            <div class="banner__inner-img">
+              <img src="./src/assets/img/banner2.jpg" alt="Maps, Geolocation" />
+            </div>
+
+            <div class="banner__badge">
+              <small>Collection</small>
+              <h4>Inspiration</h4>
+            </div>
+          </div>
+
+          <div class="banner__info">
+            <h3>Maps, Geolocation, StreetView</h3>
+            <div class="banner__users">
+              <small>followed by</small>
+              <div class="user-avatars">
+                <img src="./src/assets/img/bannerAva1.jpg" alt="user" />
+                <img src="./src/assets/img/bannerAva2.jpg" alt="user" />
+                <img src="./src/assets/img/bannerAva3.jpg" alt="user" />
+                <span>+727</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- oddiy div -->
+      <div class="oddiy">
+        <h1>
+          Find inspiration for your projects
+          <i class="ri-arrow-right-line"></i> <span>View Collections</span>
+        </h1>
+        <div class="ruyhat container2" id="directory"></div>
+      </div>
+      <!-- oddiy div -->
+      <div class="oddiyroq container">
+        <p>Directory</p>
+        <h1>W.CREATORS</h1>
+        <h3>Active creators in your country.Baunfire</h3>
+      </div>
+      <!-- swipper -->
+      <div class="swiper container2"></div>
+      <!-- ruyhat -->
+      <div class="ruyhat container2">
+        <div class="ruyhat__header">
+          <div class="col-name">Name</div>
+          <div class="col-profile">Profile</div>
+          <div class="col-awards">Awards</div>
+          <div class="col-categories">Categories</div>
+          <div class="col-action"></div>
+        </div>
+
+        <div class="ruyhat__row">
+          <div class="col-name">
+            <div class="user-info">
+              <img src="/src/assets/img/ruyhat1.jpg" alt="Matbold" />
+              <div class="user-name">
+                <span>Matbold</span>
+                <h6 class="pro-badge">PRO</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-profile">Studio</div>
+          <div class="col-awards">12</div>
+          <div class="col-categories">Web Design</div>
+          <div class="col-action">
+            <button class="view-btn">View</button>
+          </div>
+        </div>
+
+        <div class="ruyhat__row">
+          <div class="col-name">
+            <div class="user-info">
+              <img src="/src/assets/img/ruyhat2.png" alt="Isabel Edwards" />
+              <div class="user-name">
+                <span>Isabel Edwards</span>
+                <h6 class="pro-badge">PRO</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-profile">Freelance</div>
+          <div class="col-awards">1</div>
+          <div class="col-categories">—</div>
+          <div class="col-action">
+            <button class="view-btn">View</button>
+          </div>
+        </div>
+
+        <div class="ruyhat__row">
+          <div class="col-name">
+            <div class="user-info">
+              <img src="/src/assets/img/ruyhat3.jpg" alt="Edoardo Lunardi" />
+              <div class="user-name">
+                <span>Edoardo Lunardi</span>
+                <h6 class="pro-badge">PRO</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-profile">Freelance</div>
+          <div class="col-awards">5</div>
+          <div class="col-categories">Web Development</div>
+          <div class="col-action">
+            <button class="view-btn">View</button>
+          </div>
+        </div>
+
+        <div class="ruyhat__row">
+          <div class="col-name">
+            <div class="user-info">
+              <img src="/src/assets/img/ruyhat4.jpg" alt="Kenny Ho" />
+              <div class="user-name">
+                <span>Kenny Ho</span>
+                <h6 class="pro-badge">PRO</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-profile">Freelance</div>
+          <div class="col-awards">4</div>
+          <div class="col-categories">—</div>
+          <div class="col-action">
+            <button class="view-btn">View</button>
+          </div>
+        </div>
+      </div>
+      <!-- oddiy div -->
+      <div class="oddiy">
+        <h1>
+          Connect with over 6,043 Agencies and Professionals
+          <i class="ri-arrow-right-line"></i> <span>View Directory</span>
+        </h1>
+      </div>
+      <!-- buham oddiy div -->
+      <div class="buHamOddiyDiv container2">
+        <h4>Blog</h4>
+        <h1>Explore these <br />popular posts.</h1>
+      </div>
+      <!-- destraktch1 -->
+      <div class="destraktch1 container2"></div>
+      <!-- oddiy div -->
+      <div class="oddiy">
+        <h1>
+          Browse all articles
+          <i class="ri-arrow-right-line"></i> <span>View Blog</span>
+        </h1>
+      </div>
+      <!-- buham oddiy div -->
+      <div class="buHamOddiyDiv container2">
+        <div class="absluga container2" id="market"></div>
+        <h4>Market</h4>
+        <h1>A curated marketplace <br />for digital & physical products</h1>
+      </div>
+      <!-- absluga -->
+      <div class="absluga container2">
+        <div class="p-card">
+          <div class="p-card__image">
+            <img src="./src/assets/img/absluga1.jpg" alt="Athelas" />
+          </div>
+
+          <div class="p-card__content">
+            <div class="p-card__header">
+              <small class="category">Digital Product</small>
+              <h3 class="title">Athelas</h3>
+            </div>
+
+            <div class="p-card__meta">
+              <div class="author">
+                <span>by</span>
+                <a href="#">eclipso.studio</a>
+              </div>
+              <div class="price">
+                <span class="from">from</span>
+                <span class="amount">79 <sup>USD</sup></span>
+              </div>
+            </div>
+
+            <div class="p-card__footer">
+              <span>View Product</span>
+              <i class="ri-arrow-right-line arrow-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card__image">
+            <img src="./src/assets/img/absluga2.jpg" alt="Irulan" />
+          </div>
+
+          <div class="p-card__content">
+            <div class="p-card__header">
+              <small class="category">Digital Product</small>
+              <h3 class="title">Irulan</h3>
+            </div>
+
+            <div class="p-card__meta">
+              <div class="author">
+                <span>by</span>
+                <a href="#">eclipso.studio</a>
+              </div>
+              <div class="price">
+                <span class="from">from</span>
+                <span class="amount">129 <sup>USD</sup></span>
+              </div>
+            </div>
+
+            <div class="p-card__footer">
+              <span>View Product</span>
+              <i class="ri-arrow-right-line arrow-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card__image">
+            <img src="./src/assets/img/absluga3.jpg" alt="MATTIS Studio" />
+          </div>
+
+          <div class="p-card__content">
+            <div class="p-card__header">
+              <small class="category">Digital Product</small>
+              <h3 class="title">MATTIS® — Studio-grade Agency Template</h3>
+            </div>
+
+            <div class="p-card__meta">
+              <div class="author">
+                <span>by</span>
+                <a href="#">Anatolii Dmitrienko</a>
+              </div>
+              <div class="price">
+                <span class="from">from</span>
+                <span class="amount">129 <sup>USD</sup></span>
+              </div>
+            </div>
+
+            <div class="p-card__footer">
+              <span>View Product</span>
+              <i class="ri-arrow-right-line arrow-icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- oddiy div -->
+      <div class="oddiy">
+        <h1>
+          Browse specially curated products
+          <i class="ri-arrow-right-line"></i> <span>View Market</span>
+        </h1>
+      </div>
+      <!-- 2 cards  -->
+      <div class="submit-promo container2">
+        <div class="promo-card">
+          <div class="promo-card__bg">
+            <img src="./src/assets/img/bacground1.jpg" alt="Share your work" />
+          </div>
+
+          <div class="promo-card__content">
+            <div class="promo-card__top">
+              <small class="subtitle">Share your work</small>
+              <h2 class="title">
+                Submit your website for visibility and recognition.
+              </h2>
+            </div>
+
+            <div class="promo-card__bottom">
+              <button class="promo-btn">Submit Website</button>
+              <a href="#" class="faq-link"
+                >Got questions? Read our <u>FAQs</u></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-card">
+          <div class="promo-card__bg">
+            <img src="./src/assets/img/bacground2.jpg" alt="Be a member" />
+          </div>
+
+          <div class="promo-card__content">
+            <div class="promo-card__top">
+              <small class="subtitle">Be a member</small>
+              <h2 class="title">
+                Get access to special pro features and exclusive community
+                events.
+              </h2>
+            </div>
+
+            <div class="promo-card__bottom">
+              <button class="promo-btn">Be Pro</button>
+              <a href="#" class="faq-link"
+                >Got questions? Read our <u>FAQs</u></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer class="footer container2">
+      <div class="footer__container">
+        <div class="footer__logo-path">
+          <svg
+            width="30"
+            height="16"
+            viewBox="0 0 30 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m18.4 0-2.803 10.855L12.951 0H9.34L6.693 10.855 3.892 0H0l5.012 15.812h3.425l2.708-10.228 2.709 10.228h3.425L22.29 0h-3.892ZM24.77 13.365c0 1.506 1.12 2.635 2.615 2.635C28.879 16 30 14.87 30 13.365c0-1.506-1.12-2.636-2.615-2.636s-2.615 1.13-2.615 2.636Z"
+              fill="#000000"
+            />
+          </svg>
+        </div>
+
+        <div class="footer__grid">
+          <div class="footer__col">
+            <a href="#" class="footer__link">Websites</a>
+            <a href="#" class="footer__link">Collections</a>
+            <a href="#" class="footer__link">Elements</a>
+          </div>
+          <div class="footer__col">
+            <a href="#" class="footer__link">Academy</a>
+            <a href="#" class="footer__link">Jobs</a>
+            <a href="#" class="footer__link">Market</a>
+          </div>
+          <div class="footer__col">
+            <a href="#" class="footer__link">Directory</a>
+            <a href="#" class="footer__link">Conferences</a>
+          </div>
+          <div class="footer__col">
+            <a href="#" class="footer__link">FAQs</a>
+            <a href="#" class="footer__link">About Us</a>
+            <a href="#" class="footer__link">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="footer__divider"></div>
+
+        <div class="footer__bottom">
+          <div class="footer__legal">
+            <a href="#">Cookies Policy</a>
+            <a href="#">Legal Terms</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+
+          <div class="footer__socials">
+            <span class="social-title">Connect:</span>
+            <a href="#" class="social-link">Instagram</a>
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">YouTube</a>
+            <a href="#" class="social-link">TikTok</a>
+            <a href="#" class="social-link">Pinterest</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- bottom -->
+    <button class="back-to-top" id="backToTopBtn">
+      <i class="ri-arrow-up-line"></i>
+    </button>
+
+    <nav class="floating-nav">
+      <div class="floating-nav__wrapper">
+        <div class="floating-nav__logo">
+          <svg
+            width="30"
+            height="16"
+            viewBox="0 0 30 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m18.4 0-2.803 10.855L12.951 0H9.34L6.693 10.855 3.892 0H0l5.012 15.812h3.425l2.708-10.228 2.709 10.228h3.425L22.29 0h-3.892ZM24.77 13.365c0 1.506 1.12 2.635 2.615 2.635C28.879 16 30 14.87 30 13.365c0-1.506-1.12-2.636-2.615-2.636s-2.615 1.13-2.615 2.636Z"
+              fill="#fff"
+            />
+          </svg>
+        </div>
+
+        <div class="floating-nav__links">
+          <a href="#nominees" class="nav-item">Nominees</a>
+          <a href="#courses" class="nav-item">Courses</a>
+          <a href="#collections" class="nav-item">Collections</a>
+          <a href="#directory" class="nav-item">Directory</a>
+          <a href="#market" class="nav-item active">Market</a>
+        </div>
+
+        <a href="#" class="floating-nav__btn">Visit Sotd.</a>
+      </div>
     </nav>
-    <hr class="hhr">
-    <div class="nav-unter container">
-        <div class="left-nav">
-            <div class="tex"><i class="ri-menu-2-line"></i>All Categories</div>
-            <div class="hr"></div>
-            <div class="uls">
-                <ul>
-                    <li>Computer</li>
-                    <li>Laptop</li>
-                    <li>Mobile</li>
-                    <li>TV</li>
-                    <li>Gaming</li>
-                    <li>Camera</li>
-                    <li>Tablet</li>
-                    <li>Watch</li>
-                </ul>
-
-            </div>
-        </div>
-        <div class="right-nav">
-            <div class="PC"><h3>PC Configuration</h3></div>
-            <div class="icon"><i class="ri-discount-percent-line"></i>Top Deals</div>
-        </div>
-    </div>
-    <hr class="hrr">
-</header>
-<main class="container">
-     <div class="first-div">
-        <div class="text">
-            <ul>
-                <li><i class="ri-device-line"></i>Computers & LaptopsComputers & Laptops</li>
-                <li><i class="ri-macbook-line"></i>TabletsTablets</li>
-                <li><i class="ri-smartphone-line"></i>SmartphonesSmartphones</li>
-                <li><i class="ri-camera-line"></i>Camera & PhotographyCamera & Photography</li>
-                <li><i class="ri-tv-line"></i>TV & Home TheatreTV & Home Theatre</li>
-                <li><i class="ri-gamepad-line"></i>Video GamesVideo Games</li>
-                <li><i class="ri-cellphone-line"></i>Smart WatchesSmart Watches</li>
-                <li><i class="ri-remote-control-2-line"></i>Computer ComponentsComputer Components</li>
-                <li><i class="ri-printer-line"></i>Printers & InkPrinters & Ink</li>
-                <li><i class="ri-music-line"></i>Audios & HeadphonesAudios & Headphones</li>
-            </ul>
-        </div>
-        <div class="svipper">
-    <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
-    centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
-    <swiper-slide><img src="./src/assets/img/PS5.webp" alt="card"></swiper-slide>
-    <swiper-slide><img src="./src/assets/img/wacom.webp" alt="card"></swiper-slide>
-    <swiper-slide><img src="./src/assets/img/appleWatch.webp" alt="card"></swiper-slide>
-    <swiper-slide><img src="./src/assets/img/appleAirpods.webp" alt="card"></swiper-slide>
-    <div class="autoplay-progress" slot="container-end">
-      <svg viewBox="0 0 48 48">
-        <circle cx="24" cy="24" r="20"></circle>
-      </svg>
-      <span></span>
-    </div>
-  </swiper-container>
-    <script>
-    const progressCircle = document.querySelector(".autoplay-progress svg");
-    const progressContent = document.querySelector(".autoplay-progress span");
-
-    const swiperEl = document.querySelector("swiper-container");
-    swiperEl.addEventListener("autoplaytimeleft", (e) => {
-      const [swiper, time, progress] = e.detail;
-      progressCircle.style.setProperty("--progress", 1 - progress);
-      progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-    });
-  </script>
-    </div>
-        </div>
-     </div>
-     <div class="three-card">
-        <div class="card-1">
-            <img src="./src/assets/img/wideAd1.webp" alt="img">
-            <div class="overlay">
-            <p>Smart Watches</p>
-            <h3>Save Up to 99€</h3>
-            <h4>Show Deals</h4>
-            </div>
-        </div>
-        <div class="card-2">
-            <img src="./src/assets/img/wideAd2.webp" alt="img">
-            <div class="overlay">
-            <p>Laptops</p>
-            <h3>Save Up to 99€</h3>
-            <h4>Show Deals</h4>
-            </div>
-        </div>
-        <div class="card-3">
-            <img src="./src/assets/img/wideAd3.webp" alt="img">
-            <div class="overlay">
-            <p>DJI Products</p>
-            <h3>Save Up to 199€</h3>
-            <h4>Show Deals</h4>
-            </div>
-        </div>
-     </div>
-     <div class="today">
-        <div><h1>Today’s Deals</h1></div>
-        <div class="text"><h2>view all</h2><i class="ri-arrow-right-double-line"></i></div>
-     </div>
-     <div class="five-cards">
-        <div class="block"><div class="card-1"></div><div class="text">
-            <h2>Apple Airpods MAX</h2>
-            <p>Wireless <br> Noise Cancelling <br> Built-In Microphone</p>
-            <h3>was 579.00 €</h3>
-            <h1>519.00 €</h1>
-        </div>
-    </div>
-        <div class="block"><div class="card-2"></div><div class="text">
-            <h2>Apple Magic Mouse</h2>
-            <p>Bluetooth <br> White <br> usb</p>
-            <h3>was 79.99 €</h3>
-            <h1>55.49 €</h1>
-        </div>
-    </div>
-        <div class="block"><div class="card-3"></div><div class="text">
-            <h2>Apple iMac</h2>
-            <p>8GB Memory <br> 256GB <br> M3 chip</p>
-            <h3>was 1,299.00 €</h3>
-            <h1>1,119.00 €</h1>
-        </div>
-    </div>
-        <div class="block"><div class="card-4"></div><div class="text">
-            <h2>Apple 12.9 Inch iPad Pro</h2>
-            <p>Wi-Fi <br> 256GB <br> 12.9-Inch</p>
-            <h3>was 1,149.00 €</h3>
-            <h1>1,099.00 €</h1>
-        </div>
-    </div>
-        <div class="block"><div class="card-5"></div><div class="text">
-            <h2>Apple iPhone 15 Pro Max</h2>
-            <p>256GB <br> Blue Titanium <br>orange</p>
-            <h3>was 1,199.99 €</h3>
-            <h1>1,059.99 €</h1>
-        </div>
-    </div>
-     </div>
-     <div class="tho-cards">
-        <div class="card1"><img src="./assets/img/lensAd.webp" alt="img">
-            <div class="text">
-                <h3>Smart Watches</h3>
-                <h2>Save Up to 99€</h2>
-                <p>Show Deals</p>
-            </div></div>
-        <div class="card2"><img src="./assets/img/djiAd.webp" alt="img">
-            <div class="text">
-                <h3>Laptops</h3>
-                <h2>Save Up to 99€</h2>
-                <p>Show Deals</p>
-            </div></div>
-     </div>
-     <div class="Collections"><h1>Collections</h1></div>
-     <div class="collections">
-        <div class="card-1">
-            <div class="text">
-                <h3>Tablet</h3>
-                <ul>
-                    <li>iPad</li>
-                    <li>Microsoft Surface</li>
-                    <li>Samsung Galaxy</li>
-                    <li>Amazon Fire</li>
-                    <li>E-Readers</li>
-                </ul>
-            </div>
-            <div class="pictrues">
-                <img src="./src/assets/img/collectionTablet.webp" alt="img">
-                <p>All Tablet  <i class="ri-arrow-right-s-line"></i></p>
-            </div>
-        </div>
-        <div class="card-2">
-            <div class="text">
-                <h3>Smartphones</h3>
-                <ul>
-                    <li>iPhone</li>
-                    <li>Samsung Galaxy</li>
-                    <li>Google</li>
-                </ul>
-            </div>
-            <div class="pictrues">
-                <img src="./src/assets/img/17.webp" alt="img">
-                <p>All Smartphones  <i class="ri-arrow-right-s-line"></i></p>
-            </div>
-        </div>
-        <div class="card-3">
-            <div class="text">
-                <h3>Smartwatches</h3>
-                <ul>
-                    <li>Apple Watch</li>
-                    <li>Samsung Galaxy</li>
-                    <li>Android Smartwatches</li>
-                    <li>Fitness Smartwatches</li>
-                    <li>Smartwatches Accessories</li>
-                </ul>
-            </div>
-            <div class="pictrues">
-                <img src="./src/assets/img/watch.webp" alt="img">
-                <p>All Smartwatches  <i class="ri-arrow-right-s-line"></i></p>
-            </div>
-        </div>
-        <div class="card-4">
-            <div class="text">
-                <h3>Accessories</h3>
-                <ul>
-                    <li>Chargers</li>
-                    <li>Power Banks</li>
-                    <li>Cables</li>
-                    <li>PC Fans</li>
-                    <li>Mobile Covers</li>
-                </ul>
-            </div>
-            <div class="pictrues">
-                <img src="./src/assets/img/provod.webp" alt="img">
-                <p>All Accessories   <i class="ri-arrow-right-s-line"></i></p>
-            </div>
-        </div>
-     </div>
-      <div class="today">
-        <div><h1>Top Selling Products</h1></div>
-        <div class="text"><h2>view all</h2><i class="ri-arrow-right-double-line"></i></div>
-     </div>
-     <div class="hard">
-        <div class="box">
-            <div class="card-1"></div>
-            <div class="text">
-                <h3>Apple Airpods Pro</h3>
-                <ul>
-                    <li>Built-In Microphone</li>
-                    <li>3rd generation</li>
-                    <li>Water Resistant</li>
-                </ul>
-                <div class="flex"><button>-10%</button><p>was 170,80€</p></div>
-                <h1>129.99€</h1>
-            </div>
+    <!-- Explore Dropdown Modal -->
+    <div class="explore-modal container1" id="exploreModal">
+      <div class="explore-modal__inner">
+        <!-- Top search -->
+        <div class="explore-modal__search">
+          <div class="explore-modal__logo">W.</div>
+          <div class="explore-modal__searchbar">
+            <i class="ri-search-line"></i>
+            <input type="text" placeholder="Search by Inspiration" />
+          </div>
+          <div class="explore-modal__actions">
+            <a href="#">Log in</a>
+            <a href="#">Sign Up</a>
+            <button class="btn-bepro">Be Pro</button>
+            <button class="btn-submit">Submit Website</button>
+          </div>
         </div>
 
-        <div class="box">
-            <div class="card-2"></div>
-            <div class="text">
-                <h3>Apple Watch Ultra 2</h3>
-                <ul>
-                    <li>GPS + Cellular</li>
-                    <li>Titanium</li>
-                    <li>49mm</li>
-                </ul>
-                <div class="flex"><button>-12%</button><p>was 1000,200.0€</p></div>
-                <h1>799.00€</h1>
-            </div>
-        </div>
+        <!-- Body -->
+        <div class="explore-modal__body">
+          <!-- Left: categories -->
+          <div class="explore-modal__left">
+            <a href="#" class="em-cat active">
+              <i class="ri-award-line"></i> Awards
+            </a>
+            <a href="#" class="em-cat">
+              <i class="ri-layout-grid-line"></i> By Category
+            </a>
+            <a href="#" class="em-cat">
+              <i class="ri-cpu-line"></i> By Technology
+            </a>
+            <a href="#" class="em-cat">
+              <i class="ri-bookmark-line"></i> Collections
+            </a>
+            <a href="#" class="em-cat">
+              <i class="ri-article-line"></i> Blog
+            </a>
+          </div>
 
-        <div class="box">
-            <div class="card-3"></div>
-            <div class="text">
-                <h3>ASUS ROG Laptop</h3>
-                <ul>
-                    <li>32GB RAM</li>
-                    <li>17inch display</li>
-                    <li>OLED Display</li>
-                </ul>
-                <div class="flex"><button>-14%</button><p>was 2,499.99€</p></div>
-                <h1>2,149.99€</h1>
-            </div>
+          <!-- Right: links -->
+          <div class="explore-modal__right">
+            <a href="#" class="em-link">
+              <span>Honor Mentions</span>
+              <span class="em-count">25K</span>
+            </a>
+            <a href="#" class="em-link">
+              <span>Nominees</span>
+              <span class="em-count">48K</span>
+            </a>
+            <a href="#" class="em-link">
+              <span>Sites of the Day</span>
+              <span class="em-count">6340</span>
+            </a>
+            <a href="#" class="em-link">
+              <span>Sites of the Month</span>
+              <span class="em-count">192</span>
+            </a>
+            <a href="#" class="em-link">
+              <span>Sites of the Year</span>
+              <span class="em-count">64</span>
+            </a>
+            <a href="#" class="em-link">
+              <span>Honors</span>
+              <span class="em-badge">New</span>
+            </a>
+            <a href="#" class="em-link">
+              <span>Most Awarded Profiles</span>
+            </a>
+            <a href="#" class="em-link">
+              <span>Jury 2026</span>
+            </a>
+          </div>
         </div>
-        
-        <div class="box">
-            <div class="card-4"></div>
-            <div class="text">
-                <h3>PS5 Controller</h3>
-                <ul>
-                    <li>Bluetooth</li>
-                    <li>Version 2</li>
-                    <li>USB</li>
-                </ul>
-                <div class="flex"><button>-20%</button><p>was 100.90€</p></div>
-                <h1>69.00€</h1>
-            </div>
-        
-        </div>
-        <div class="box">
-            <div class="card-5"></div>
-            <div class="text">
-                <h3>Sony Alpha 7RV</h3>
-                <ul>
-                    <li>Full Frame</li>
-                    <li>Body</li>
-                    <li>40MP</li>
-                </ul>
-                <div class="flex"><button>-18%</button><p>was 4,499.00€</p></div>
-                <h1>3,699.00€</h1>
-            </div>
-        </div>
-     </div>
-     <div class="today">
-        <div><h1>Latest Posts</h1></div>
-        <div class="text"><h2>view all</h2><i class="ri-arrow-right-double-line"></i></div>
-     </div>
-     <div class="posts">
-        <div class="post1">
-            <img src="./src/assets/img/blogPost1.webp" alt="img">
-            <h3>Praesent vestibulum nisi at mollis mollis</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet quam finibus, gravida mi in, fermentum est. Nulla lacinia, orci ac dictum euismod, ligula leo suscipit ...</p>
-        </div>
-        <div class="post2">
-            <img src="./src/assets/img/blogPost2.webp" alt="img">
-            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet quam finibus, gravida mi in, fermentum est. Nulla lacinia, orci ac dictum euismod, ligula leo suscipit l...</p>
-        </div>
-        <div class="post3">
-            <img src="./src/assets/img/blogPost3.webp" alt="img">
-            <h3>Lorem ipsum dolor sit amet, consectetur</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet quam finibus, gravida mi in, fermentum est. Nulla lacinia, orci ac dictum euismod, ligula leo suscipit l...</p>
-        </div>
-     </div>
-     <div class="select"><h1>Selected Brands</h1></div>
-     <div class="main-over">
-        <div><img src="./src/assets/svg/first.PNG" alt="1"></div>
-        <div><img src="./src/assets/svg/2.png" alt="1"></div>
-        <div><img src="./src/assets/svg/companiesIcons.PNG" alt="1"></div>
-        <div><img src="./src/assets/svg/4.PNG" alt="1"></div>
-        <div><img src="./src/assets/svg/5.PNG" alt="1"></div>
-        <div><img src="./src/assets/svg/6.PNG" alt="1"></div>
-        <div><img src="./src/assets/svg/7.PNG" alt="1"></div>
-        <div><img src="./src/assets/svg/8.PNG" alt="1"></div>
-     </div>
-</main>
-<hr class="hhrr">
-<footer class="container">
-    <div class="first-footer-div">
-        <div class="logo"><img src="./assets/svg/logo.webp" alt="this is logo"></div>
-        <div class="input"><i class="ri-search-line"></i><input type="text" placeholder="Search"></div>
-    </div>
-    <hr class="hhhrrr">
-    <div class="footer-over">
-        <div class="tab-1">
-            <h2>Contact Us</h2>
-            <h4>Got Question? Call us 24/7</h4>
-            <h3>+49 30 575909881</h3>
-            <p>685 Market Street, San Francisco, CA 94105, US <br> nonamecompany@justportfolio.com</p>
-        </div>
-        <div class="tab-2">
-            <h2>Categories</h2>
-            <ul>
-                <li>Computer & Laptop</li>
-                <li>Tablets & iPad</li>
-                <li>Printer & Cameras</li>
-                <li>Smart Phones</li>
-                <li>OLED Smart TVs</li>
-                <li>Keyboard & Mouse</li>
-                <li>Video Games</li>
-                <li>Sports & Outdoors</li>
-                <li>Smart Watches</li>
-            </ul>
-        </div>
-        <div class="tab-3">
-            <h2>Customer Service</h2>
-            <ul>
-                <li>Privacy Policy</li>
-                <li>Refund Policy</li>
-                <li>Shipping & Return</li>
-                <li>Terms & Conditions</li>
-                <li>Advanced Search</li>
-                <li>Store Locations</li>
-            </ul>
-        </div>
-        <div class="tab-4">
-            <h2>Sign Up to Newsletter</h2>
-            <div class="flex">
-            <div class="inp"><input type="email" placeholder="email address"></div>
-            <div class="btn"><button>Subscribe</button></div>
-        </div>
-        </div>
-    </div>
-</footer>
-<div class="bg">
-<div class="info container">
-    <div class="info1"><p>© 2025 BITEX Store. All Rights Reserved.</p></div>
-    <div class="info2"><ul>
-        <li>Conditions of Use & Sale</li>
-        <li>Privacy Notice</li>
-        <li>Imprint</li>
-        <li>Cookies Notice</li>
-        <li>Interest-Based Ads Notice</li>
-    </ul></div>
-    <div class="info3">
-        <i class="ri-linkedin-box-fill"></i>
-        <i class="ri-twitter-x-line"></i>
-        <i class="ri-instagram-line"></i>
-        <i class="ri-facebook-circle-fill"></i>
+      </div>
     </div>
 
-</div>
-</div>
-</body>
+    <!-- Overlay -->
+    <div class="explore-overlay" id="exploreOverlay"></div>
+
+    <!-- sing up modals -->
+
+    <!-- Login / Register Modal -->
+    <div class="auth-overlay" id="authOverlay"></div>
+
+    <div class="auth-modal" id="authModal">
+      <!-- Close button -->
+      <button class="auth-modal__close" id="authClose">
+        <i class="ri-close-line"></i>
+      </button>
+
+      <!-- Left side -->
+      <div class="auth-modal__left">
+        <p class="auth-modal__welcome">Welcome!</p>
+
+        <div class="auth-modal__illustration">
+          <!-- W. logo -->
+          <svg
+            width="30"
+            height="16"
+            viewBox="0 0 30 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m18.4 0-2.803 10.855L12.951 0H9.34L6.693 10.855 3.892 0H0l5.012 15.812h3.425l2.708-10.228 2.709 10.228h3.425L22.29 0h-3.892ZM24.77 13.365c0 1.506 1.12 2.635 2.615 2.635C28.879 16 30 14.87 30 13.365c0-1.506-1.12-2.636-2.615-2.636s-2.615 1.13-2.615 2.636Z"
+              fill="#000"
+            />
+          </svg>
+
+          <!-- Smiley face SVG -->
+          <svg
+            width="163"
+            height="163"
+            viewBox="0 0 163 163"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M81.09 162.18C125.875 162.18 162.18 125.875 162.18 81.09C162.18 36.3052 125.875 081.09 0C36.3053 0 0 36.3052 0 81.09C0 125.875 36.3053 162.18 81.09 162.18Z"
+              fill="#AAEEC4"
+            ></path>
+            <path
+              d="M81.0906 147.041C117.514 147.041 147.041 117.514 147.041 81.0906C147.041 44.6674 117.514 15.1406 81.0906 15.1406C44.6675 15.1406 15.1406 44.6674 15.1406 81.0906C15.1406 117.514 44.6675 147.041 81.0906 147.041Z"
+              stroke="#502BD8"
+              stroke-width="8"
+              stroke-miterlimit="1.2"
+            ></path>
+            <path
+              d="M103.819 78.3292C108.906 78.3292 113.029 74.1028 113.029 68.8892C113.029 63.6757 108.906 59.4492 103.819 59.4492C98.7329 59.4492 94.6094 63.6757 94.6094 68.8892C94.6094 74.1028 98.7329 78.3292 103.819 78.3292Z"
+              fill="#502BD8"
+            ></path>
+            <path
+              d="M58.3662 78.3292C63.4528 78.3292 67.5762 74.1028 67.5762 68.8892C67.5762 63.6757 63.4528 59.4492 58.3662 59.4492C53.2797 59.4492 49.1562 63.6757 49.1562 68.8892C49.1562 74.1028 53.2797 78.3292 58.3662 78.3292Z"
+              fill="#502BD8"
+            ></path>
+            == $0
+            <path
+              d="M48.8438 94.8906C52.3937 109.411 65.4838 120.181 81.0938 120.181C96.7037 120.181 109.794 109.411 113.344 94.8906"
+              stroke="#502BD8"
+              stroke-width="8"
+              stroke-miterlimit="1.2"
+            ></path>
+          </svg>
+        </div>
+
+        <div class="auth-modal__footer-text" id="authFooterText">
+          Not a member yet?
+          <a href="#" id="switchToRegister"><strong>Register now</strong></a>
+        </div>
+      </div>
+
+      <!-- Right side -->
+      <div class="auth-modal__right">
+        <!-- LOGIN FORM -->
+        <div class="auth-form" id="loginForm">
+          <h2>Log in</h2>
+
+          <div class="auth-field">
+            <label>EMAIL OR USERNAME</label>
+            <input type="text" placeholder="Email or Username" />
+          </div>
+
+          <div class="auth-field">
+            <label>PASSWORD</label>
+            <input type="password" placeholder="Password" />
+          </div>
+
+          <label class="auth-checkbox">
+            <input type="checkbox" /> Keep me logged in
+          </label>
+
+          <button class="auth-submit">Log in now</button>
+
+          <a href="#" class="auth-forgot">Forgot your password?</a>
+
+          <div class="auth-divider"><span>Or sign in with</span></div>
+
+          <div class="auth-socials">
+            <button><i class="ri-google-fill"></i> Google</button>
+            <button><i class="ri-facebook-fill"></i> Facebook</button>
+            <button><i class="ri-twitter-x-fill"></i> Twitter</button>
+          </div>
+        </div>
+
+        <!-- REGISTER FORM -->
+        <div class="auth-form hidden" id="registerForm">
+          <h2>Register with your e-mail</h2>
+
+          <div class="auth-field">
+            <label>USERNAME (*)</label>
+            <input type="text" placeholder="Username" />
+          </div>
+
+          <div class="auth-field">
+            <label>EMAIL (*)</label>
+            <input type="email" placeholder="E-mail" />
+          </div>
+
+          <div class="auth-field-row">
+            <div class="auth-field">
+              <label>PASSWORD (*)</label>
+              <input type="password" placeholder="Password" />
+            </div>
+            <div class="auth-field">
+              <label>REPEAT PASSWORD (*)</label>
+              <input type="password" placeholder="Repeat Password" />
+            </div>
+          </div>
+
+          <p class="auth-policy">
+            Awwwards may keep me informed with personalized emails about
+            products and services. See our <strong>Privacy Policy</strong> for
+            more details.
+          </p>
+
+          <label class="auth-checkbox">
+            <input type="checkbox" /> Please contact me via e-mail
+          </label>
+          <label class="auth-checkbox">
+            <input type="checkbox" /> I have read and accept the Terms and
+            Conditions
+          </label>
+
+          <p class="auth-recaptcha">
+            This site is protected by reCAPTCHA and the Google Privacy Policy
+            and Terms of Service apply.
+          </p>
+
+          <button class="auth-submit">Create Account</button>
+
+          <div class="auth-divider"><span>Or register with</span></div>
+
+          <div class="auth-socials">
+            <button><i class="ri-google-fill"></i> Google</button>
+            <button><i class="ri-twitter-x-fill"></i> Twitter</button>
+            <button><i class="ri-facebook-fill"></i> Facebook</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./src/js/destraktch.js"></script>
+    <script src="./src/js/swipper.js"></script>
+    <script src="./src/js/script.js"></script>
+  </body>
 </html>
 <!--------  sass --watch src/sass/layout/main.scss src/dist/style.css  ------->
-
-
-
-
-
-

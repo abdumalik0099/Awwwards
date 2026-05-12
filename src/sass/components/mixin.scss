@@ -135,3 +135,16 @@ border: 1px solid #949090;
 }
 
 
+@mixin tablet {
+  @media (max-width: 1024px) { @content; }
+}
+@mixin mobile {
+  @media (max-width: 768px) { @content; }
+}
+
+@mixin bg_color{
+    background-color: #E9E9E9;
+}
+@mixin text_color{
+    color: #000000;
+}

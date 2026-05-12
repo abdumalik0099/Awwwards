@@ -1,0 +1,1159 @@
+.destraktch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px 20px;
+  margin-top: 30px;
+
+  &:has(.dk-card:hover) .dk-card:not(:hover) {
+    .dk-thumb {
+      transform: scale(0.97);
+      filter: brightness(0.8);
+    }
+  }
+}
+
+.dk-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+
+  // ── Thumb ──
+  .dk-thumb {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    transition:
+      transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      filter 0.4s ease;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  }
+
+  &:hover .dk-thumb {
+    transform: scale(1.02);
+
+    > img {
+      transform: scale(1.05);
+    }
+  }
+
+  // ── Overlay ──
+  .dk-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  &:hover .dk-overlay {
+    opacity: 1;
+  }
+
+  // ── Vote button ──
+  .dk-vote {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -44%) scale(0.88);
+    opacity: 0;
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: #fff;
+    color: #111;
+    border: none;
+    border-radius: 10px;
+    padding: 13px 22px;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    z-index: 5;
+    white-space: nowrap;
+    transition: 0.3s;
+
+    i {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    &:hover {
+      background: #111;
+      color: #fff;
+    }
+  }
+
+  &:hover .dk-vote {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  // ── Bottom info ──
+  .dk-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 28px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.72), transparent);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+
+    .dk-category {
+      display: block;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 3px;
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+      margin: 0;
+    }
+  }
+
+  &:hover .dk-bottom {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  // ── Bottom actions ──
+  .dk-bottom-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+
+    a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      transition:
+        background 0.2s,
+        border-color 0.2s;
+
+      i {
+        font-size: 30px;
+        line-height: 1;
+      }
+    }
+  }
+
+  // ── Meta (below card) ──
+  .dk-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .dk-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111;
+  }
+
+  .dk-by {
+    font-size: 13px;
+    color: #888;
+  }
+
+  .dk-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .dk-author {
+    font-size: 20px;
+    font-weight: 500;
+    color: #111;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+    cursor: pointer;
+    border-bottom: 2px solid #929090;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background-color: #000;
+      transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  .dk-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: #f63;
+    background: #fff2ed;
+    border-radius: 4px;
+    padding: 2px 5px;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+}
+// ── MEDIA QUERIES ──
+
+// Tablet (max 1024px) — 2 kolonna
+@media (max-width: 1024px) {
+  body {
+    padding: 0 5px;
+  }
+  .destraktch {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 16px;
+  }
+
+  .dk-card {
+    .dk-bottom {
+      padding: 20px 18px;
+
+      h3 {
+        font-size: 18px;
+      }
+    }
+
+    .dk-vote {
+      padding: 11px 18px;
+      font-size: 14px;
+    }
+
+    .dk-meta {
+      flex-wrap: wrap;
+    }
+
+    .dk-title {
+      font-size: 18px;
+    }
+
+    .dk-author {
+      font-size: 16px;
+    }
+  }
+}
+
+// Mobile large (max 768px) — 1 kolonna
+@media (max-width: 768px) {
+  .destraktch {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .dk-card {
+    .dk-thumb {
+      border-radius: 12px;
+      aspect-ratio: 16 / 10;
+    }
+
+    // Mobaylda overlay va bottom-info doim ko'rinib turadi
+    .dk-overlay {
+      opacity: 0.25;
+    }
+
+    .dk-bottom {
+      opacity: 1;
+      transform: translateY(0);
+      padding: 16px;
+
+      h3 {
+        font-size: 16px;
+      }
+
+      .dk-category {
+        font-size: 10px;
+      }
+    }
+
+    // Vote button mobaylda tap bilan ishlaydi
+    &:active .dk-vote {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .dk-vote {
+      padding: 10px 16px;
+      font-size: 13px;
+      border-radius: 8px;
+
+      i {
+        font-size: 15px;
+      }
+    }
+
+    .dk-bottom-actions {
+      gap: 6px;
+
+      a {
+        width: 30px;
+        height: 30px;
+
+        i {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .dk-meta {
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .dk-title {
+      font-size: 16px;
+    }
+
+    .dk-by {
+      font-size: 12px;
+    }
+
+    .dk-avatar {
+      width: 22px;
+      height: 22px;
+    }
+
+    .dk-author {
+      font-size: 14px;
+    }
+  }
+}
+
+// Mobile small (max 480px)
+@media (max-width: 480px) {
+  .destraktch {
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .dk-card {
+    .dk-thumb {
+      border-radius: 10px;
+      aspect-ratio: 3 / 2;
+    }
+
+    .dk-bottom {
+      padding: 12px 14px;
+
+      h3 {
+        font-size: 14px;
+      }
+    }
+
+    .dk-bottom-actions a {
+      width: 28px;
+      height: 28px;
+
+      i {
+        font-size: 14px;
+      }
+    }
+
+    .dk-vote {
+      padding: 9px 14px;
+      font-size: 12px;
+      gap: 6px;
+    }
+
+    .dk-title {
+      font-size: 14px;
+    }
+
+    .dk-author {
+      font-size: 13px;
+    }
+
+    .dk-badge {
+      font-size: 9px;
+      padding: 1px 4px;
+    }
+  }
+}
+
+//                four kards
+
+.four-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 0;
+
+  .card {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 24px; // Yumshoq burchaklar
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    // Karta ustiga sichqoncha kelganda (Hover effekti)
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+
+      // O'ng pastdagi Remix strelka silliq o'ngga suriladi
+      .card__arrow {
+        transform: translateX(5px);
+        color: #000000;
+      }
+    }
+
+    // .none klassi bo'lsa planshetda yashiriladi
+    &.none {
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+
+    &__img {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    &__content {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+      h3 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #111111;
+        line-height: 1.4;
+        margin: 0 0 32px 0;
+        min-height: 60px; // Sarlavhalar bir xil chiziqda turishi uchun
+      }
+    }
+
+    &__meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto; // Pastga mutlaqo yopishib turishi uchun
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+
+      .label {
+        font-size: 13px;
+        color: #888888;
+        font-weight: 500;
+      }
+
+      .value.name {
+        font-size: 14px;
+        color: #2c2c2c;
+        font-weight: 500;
+      }
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 20px;
+    }
+
+    &__score {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 70%;
+
+      .label {
+        font-size: 13px;
+        color: #111111;
+        font-weight: 600;
+
+        span {
+          color: #888888;
+          font-weight: 400;
+          margin-left: 4px;
+        }
+      }
+
+      // SARIQ PROGRESS BAR (VIDEODAGIDEK/RASMDAGIDEK)
+      .progress-bar {
+        width: 80px;
+        height: 3px;
+        background-color: #ebebeb;
+        border-radius: 2px;
+        overflow: hidden;
+
+        .progress {
+          height: 100%;
+          background-color: #ffd200; // Awwwards sariq rangi
+          border-radius: 2px;
+        }
+      }
+    }
+
+    // REMIX ICON STRELKASI
+    &__arrow {
+      font-size: 20px;
+      color: #2c2c2c;
+      transition:
+        transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+        color 0.3s ease;
+    }
+  }
+}
+
+// Mobil ekranlar uchun moslashtirish (Responsive)
+@media (max-width: 768px) {
+  .four-card {
+    flex-direction: column; // Mobil qurilmada kartalar ustma-ust tushadi
+    gap: 1.5rem;
+  }
+}
+
+//                    ------------banner
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 40px;
+  &__card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    // ============================================================
+    // HOVER EFFEKTI: SIZ YUBORGAN ASIL VA HOVER RASMLARI BILAN BIRXIL
+    // ============================================================
+    &:hover {
+      .banner__inner-img img {
+        transform: scale(1.05); // Hoverda ichki rasm silliq kattalashadi
+      }
+
+      .banner__badge {
+        opacity: 1; // Matn ko'rinadi
+        transform: translateY(0); // Pastdan o'z joyiga silliq ko'tariladi
+      }
+    }
+  }
+
+  // TO'Q KULRANG ASOSIY BLOK (CONTAINER)
+  &__img-container {
+    position: relative;
+    width: 100%;
+    height: 420px; // Saytdagi optimal balandlik
+    background-color: #242524; // Asl rasmdagi to'q kulrang fon
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  // ICHKI RASM KLASSI (ASIL HOLATDA KICHIKROQ TURISHI UCHUN)
+  &__inner-img {
+    width: 78%; // Asl holatda chetlardan to'q fon qolishi uchun masofa
+    height: 74%;
+    overflow: hidden;
+    border-radius: 6px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      // Katta-kichik bo'lish animatsiyasi tezligi:
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+  }
+
+  // HOVERDA PASTDA PAYDO BO'LADIGAN "COLLECTION INSPIRATION" BLOKI
+  &__badge {
+    position: absolute;
+    bottom: 35px;
+    left: 11%; // Ichki rasmning chap chizig'i bilan tekis turishi uchun
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    // BOSHIDA YASHIRIN HOLATDA TURISHI:
+    opacity: 0;
+    transform: translateY(15px); // Boshida biroz pastroqda turadi
+    transition:
+      opacity 0.4s ease,
+      transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+
+    small {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #8c8c8c; // Och kulrang "COLLECTION" yozuvi
+      font-weight: 500;
+    }
+
+    h4 {
+      font-size: 20px;
+      color: #ffffff; // Oq rangdagi "Inspiration"
+      margin: 0;
+      font-weight: 400;
+    }
+  }
+
+  // KARTANING ENG PASTKI DOIMIY TEXT QISMI
+  &__info {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+    h3 {
+      font-size: 19px;
+      font-weight: 600;
+      color: #111111;
+      margin: 0;
+    }
+  }
+
+  // AVATARLARNING BIR-BIRINI USTIGA MINISH QISMI
+  &__users {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    small {
+      font-size: 13px;
+      color: #888888;
+    }
+
+    .user-avatars {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #fff; // Rasmlar orasidagi oq chiziq
+        margin-left: -8px; // Bir-birining ustiga mindirish siri
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      span {
+        font-size: 13px;
+        font-weight: 600;
+        color: #111111;
+        margin-left: 6px;
+      }
+    }
+  }
+}
+//-------------------oddiyroq
+
+.oddiyroq{
+    text-align: center;
+    h1{
+        font-size: 130px;
+    }
+    h3{
+        font-weight: 400;
+    }
+}
+
+// ── DESTRAKTCH — Blog Cards Grid ──
+
+.destraktch1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 50px;
+
+  // ── Karta ──
+  .d-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background: transparent;
+
+    &:hover {
+      transform: translateY(-4px);
+
+      .d-card__img-wrap img {
+        transform: scale(1.04);
+      }
+    }
+
+    // ── Rasm qutisi ──
+    &__img-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #efefef;
+      margin-bottom: 20px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+    }
+
+    // ── Placeholder (rasm yo'q bo'lsa) ──
+    &__img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    // ── Kategoriya ──
+    &__cat {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    // ── Sarlavha ──
+    &__title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(16px, 1.6vw, 22px);
+      font-weight: 800;
+      color: #111;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    // ── Tavsif ──
+    &__desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: #666;
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  // ── RESPONSIVE ──
+  @media (max-width: 960px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 30px;
+
+    .d-card {
+      &__img-wrap {
+        border-radius: 10px;
+        margin-bottom: 14px;
+      }
+
+      &__title {
+        font-size: 18px;
+      }
+
+      &__desc {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+
+// --------------absluga
+
+.absluga {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 0;
+  background-color: #ffffff; 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  .p-card {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    // Element pastki chizig'i uchun joy tayyorlash:
+    border-bottom: 1px solid #e2e2e2;
+    transition: transform 0.3s ease;
+
+    // ============================================================
+    // HOVER EFFEKTI (PASTKI CHIZIQ VA STRELKA SILJISHI)
+    // ============================================================
+
+
+    // MAHSULOT RASMI KONTEYNERI
+    &__image {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      border-radius: 12px; // Rasm burchaklari yumaloqligi
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        
+        &:hover{
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    // KARTA ICHIDAGI MATNLAR BLOKI
+    &__content {
+      padding: 24px 4px 16px 4px; // Chetlardan toza joy qoldirish
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    &__header {
+      margin-bottom: 25px;
+      min-height: 65px; // Sarlavha uzun bo'lsa kartalar balandligi buzilmasligi uchun
+
+      .category {
+        font-size: 13px;
+        color: #888888;
+        font-weight: 400;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .title {
+        font-size: 19px;
+        font-weight: 600;
+        color: #111111;
+        margin: 0;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+      }
+    }
+
+    // MUALLIF VA NARX METADATA BLOKI
+    &__meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eeeeee; // Nozik ajratuvchi chiziq
+
+      .author {
+        font-size: 14px;
+        color: #999999;
+
+        a {
+          color: #111111;
+          font-weight: 600;
+          text-decoration: none;
+          margin-left: 4px;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .price {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+
+        .from {
+          font-size: 12px;
+          color: #999999;
+        }
+
+        .amount {
+          font-size: 24px;
+          font-weight: 700;
+          color: #111111;
+
+          sup {
+            font-size: 11px;
+            font-weight: 600;
+            top: -8px;
+            margin-left: 2px;
+          }
+        }
+      }
+    }
+
+    // HOVER BO'LADIGAN ENG PASTKI QISM
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      color: #555555;
+      font-size: 14px;
+      font-weight: 500;
+
+      span {
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .arrow-icon {
+        font-size: 18px;
+        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+    }
+  }
+}
+
+// Mobil versiya moslashuvchanligi
+@media (max-width: 992px) {
+  .absluga {
+    flex-direction: column;
+    gap: 2.5rem;
+
+    .p-card__header {
+      min-height: auto;
+    }
+  }
+}
+
+
+//--------------2cards
+
+.submit-promo {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  .promo-card {
+    flex: 1;
+    position: relative;
+    height: 480px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #111111; // Rasm ostidagi to'q baza
+    cursor: pointer;
+
+    // HOVER EFFEKTI: Karta ustiga kelganda tugma va rasm o'zgarishi
+    &:hover {
+      .promo-card__bg img {
+        transform: scale(1.03); // Rasm juda sekin va sezarsiz yiriklashadi
+      }
+
+      .promo-btn {
+        background-color: #ffffff;
+        color: #111111;
+        border-color: #ffffff;
+      }
+    }
+
+    // FON RASMI VA SHAFFAF PARDA (OVERLAY)
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+
+      // Rasmni oq-qora qilish va ustidan qoraytirish
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
+      }
+    }
+
+    // ICHIDAGI MATNLAR KANVASI
+    &__content {
+      position: relative;
+      z-index: 3; // Rasm va Overlaydan tepada turishi shart
+      height: 100%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; // Tepani tepaga, pastni pastga suradi
+      box-sizing: border-box;
+    }
+
+    &__top {
+      .subtitle {
+        font-size: 14px;
+        font-weight: 400;
+        color: #cccccc;
+        display: block;
+        margin-bottom: 20px;
+        letter-spacing: 0.02em;
+      }
+
+      .title {
+        font-size: 36px;
+        font-weight: 500;
+        color: #ffffff;
+        line-height: 1.2;
+        margin: 0;
+        max-width: 90%; // Matn o'ng burchakka juda yopishib ketmasligi uchun
+        letter-spacing: -0.02em;
+      }
+    }
+
+    &__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end; // Elementlarni pastki chiziq bo'ylab tekislaydi
+    }
+
+    // PREMIUM CHEGARALI TUGMA
+    .promo-btn {
+      padding: 16px 32px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background-color: transparent;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    // AWWARDS BREND MATNI (CHAP KARTADA)
+    .logo-text {
+      font-size: 26px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.25); // Xira oq rangda
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    // FAQ SILLIQ HAVOLASI (O'NG KARTADA)
+    .faq-link {
+      font-size: 13px;
+      color: #bbbbbb;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      u {
+        text-underline-offset: 3px;
+      }
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// RESPONSIVE: Planshet va Mobil ekranlarga moslash
+@media (max-width: 992px) {
+  .submit-promo {
+    flex-direction: column;
+    gap: 20px;
+
+    .promo-card {
+      height: 420px;
+      
+      &__content {
+        padding: 30px;
+      }
+
+      .promo-card__top .title {
+        font-size: 28px;
+      }
+    }
+  }
+}
