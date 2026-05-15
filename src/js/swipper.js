@@ -191,24 +191,26 @@
     if (!root) return;
     root.innerHTML = agencies.map(buildCard).join('');
     root.querySelectorAll('.agency-card').forEach((card, i) => {
-      initScreenSwiper(card, agencies[i].slides.length);
+      initScreenSwiper(card, agencies[i].slides);
     });
   }
 
   // ─────────────────────────────────────────
   // SCREEN SWIPER
   // ─────────────────────────────────────────
-  function initScreenSwiper(card, total) {
+  function initScreenSwiper(card, slides) {
     const track = card.querySelector('.screen-track');
     const dots  = card.querySelectorAll('.agency-card__dot');
     const wrap  = card.querySelector('.screen-wrap');
     let current = 0;
     let autoplay;
+    const total = slides.length;
 
     function goTo(index) {
       current = (index + total) % total;
       track.style.transform = `translateX(-${current * 100}%)`;
       dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+      card.dataset.currentImg = slides[current].img;
     }
 
     dots.forEach((dot, i) => {
@@ -237,6 +239,9 @@
       if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); resetAuto(); }
     });
     wrap.addEventListener('mouseleave', () => { dragging = false; });
+
+    // Initial set
+    goTo(0);
   }
 
   if (document.readyState === 'loading') {

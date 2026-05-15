@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detay sahifa</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: #f5f7fb;
+      color: #111;
+      min-height: 100vh;
+    }
+    .single-wrapper {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+    .single-card {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+    .single-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+      padding: 32px;
+    }
+    .single-hero img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      object-fit: cover;
+      max-height: 520px;
+    }
+    .single-content {
+      display: grid;
+      gap: 24px;
+    }
+    .single-category {
+      display: inline-flex;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #e7f0ff;
+      color: #1d4ed8;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .single-title {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.05;
+    }
+    .single-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .single-author img {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e2e8f0;
+    }
+    .single-author-info {
+      display: grid;
+      gap: 4px;
+    }
+    .single-author-name {
+      font-weight: 700;
+    }
+    .single-detail {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #334155;
+    }
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #111827;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .button-row a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+    .button-row a:hover {
+      transform: translateY(-1px);
+    }
+    .button-primary {
+      background: #111827;
+      color: #fff;
+    }
+    .button-secondary {
+      background: #e2e8f0;
+      color: #111827;
+    }
+    .single-empty {
+      background: #fff;
+      padding: 48px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    }
+    .single-empty h1 {
+      margin: 0 0 16px;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="single-wrapper">
+    <div id="single-content" class="single-card"></div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'selectedCard';
+
+    function getSelectedCard() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch (error) {
+        console.error('Failed to load saved card:', error);
+        return null;
+      }
+    }
+
+    function renderSingleCard(card) {
+      const root = document.getElementById('single-content');
+      if (!root) return;
+
+      if (!card) {
+        root.innerHTML = `
+          <div class="single-empty">
+            <h1>Hech narsa tanlanmadi</h1>
+            <p>Ilk sahifadagi kartalardan birini tanlang. Tanlangan kartani qaytib ochish uchun <a href="../../index.html">bosh sahifaga</a> qayting.</p>
+          </div>
+        `;
+        return;
+      }
+
+      root.innerHTML = `
+        <div class="single-hero">
+          <img src="${card.image || ''}" alt="${card.title}" />
+          <div class="single-content">
+            ${card.category ? `<span class="single-category">${card.category}</span>` : ''}
+            <h1 class="single-title">${card.title}</h1>
+            <div class="single-author">
+              <img src="${card.avatar || card.image || ''}" alt="${card.author || 'Author'}" />
+              <div class="single-author-info">
+                <span class="single-author-name">${card.author || 'Unknown author'}</span>
+                <span>${card.pro ? 'PRO Designer' : 'Designer'}</span>
+              </div>
+            </div>
+            ${card.description ? `<p class="single-detail">${card.description}</p>` : ''}
+            ${card.detail ? `<p class="single-detail">${card.detail}</p>` : ''}
+            <div class="stack">
+              ${card.category ? `<span class="badge">${card.category}</span>` : ''}
+              ${card.pro ? '<span class="badge">PRO</span>' : ''}
+            </div>
+            <div class="button-row">
+              <a class="button-primary" href="../../index.html">Orqaga</a>
+              <a class="button-secondary" href="javascript:void(0)">Batafsil</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const selectedCard = getSelectedCard();
+      renderSingleCard(selectedCard);
+    });
+  </script>
+</body>
+</html>
